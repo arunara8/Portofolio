@@ -1,0 +1,518 @@
+/* --- 1. GLOBAL & VARIABLES --- */
+:root {
+        --bs-primary: #9eff00 !important; /* Warna Ijo Neon */
+        --bs-primary-rgb: 158, 255, 0 !important;
+    }
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #000000 !important;
+    color: #ffffff;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    max-width: 100%;
+    overflow-x: hidden;
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 100%;
+    box-sizing: border-box; /* Biar padding gak nambah lebar element */
+}
+.door-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: 'Consolas', monospace;
+        font-size: clamp(1.5rem, 5vw, 3.5rem);
+        font-weight: bold;
+    }
+    .list-item-neon i {
+        color: var(--neon-green);
+        filter: drop-shadow(0 0 5px var(--white));
+    }
+
+section, .bg-light, .bg-white {
+        background-color: #000000 !important;
+        color: #ffffff !important;
+    }
+.text-primary, .text-info {
+        color: #9eff00 !important;
+        text-shadow: 0 0 10px rgba(158, 255, 0, 0.5) !important;
+    }
+
+p, .text-muted {
+    color: #a3abb2 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #ffffff !important;
+}
+
+/* --- 2. NAVBAR & NAVIGATION --- */
+.navbar {
+    transition: all 0.5s ease-in-out;
+    background: transparent !important;
+    border: none !important;
+    padding-top: 20px;
+}
+
+.navbar.scrolled {
+    background: rgba(3, 5, 8, 0.95) !important;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--neon-green) !important;
+}
+
+.navbar .nav-link, .navbar-brand {
+    color: #ffffff !important;
+    font-weight: 600;
+}
+
+/* --- 3. HERO SECTION & ANIMATIONS --- */
+#code-rain-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Paling belakang */
+    opacity: 0.8; /* Biar gak terlalu nabrak sama teks utama */
+}
+
+
+.hero-sub-text {
+        font-family: 'Courier New', monospace;
+        color: #fff !important; 
+        font-size: 0.9rem;
+        letter-spacing: 3px;
+        opacity: 0.8;
+}
+#home::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px; /* Jarak pudarnya */
+    background: linear-gradient(to bottom, transparent, #000000);
+    z-index: 1;
+}
+
+.main-text {
+        color: #ffc107;
+        padding: 0 10px; /* Jarak antara kurung dan teks */
+        text-shadow: 0 0 15px rgba(255, 193, 7, 0.4);
+        font-size: 3rem;
+    }
+
+.typed-cursor {
+    color: var(--neon-green);
+    font-size: 3rem;
+    animation: blink 0.7s infinite;
+}
+
+/* --- 4. ABOUT & SERVICES (NEON STYLE) --- */
+.about-img-container {
+    position: relative;
+    display: inline-block;
+}
+
+.about-img-container::before, .about-img-container::after {
+    content: "";
+    position: absolute;
+    width: 40px; height: 40px;
+    border: 3px solid var(--neon-green);
+    z-index: 2;
+    box-shadow: 0 0 15px var(--neon-green);
+}
+
+.about-img-container::before { top: -10px; left: -10px; border-right: none; border-bottom: none; }
+.about-img-container::after { bottom: -10px; right: -10px; border-left: none; border-top: none; }
+
+.service-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(158, 255, 0, 0.1);
+    padding: 40px 30px;
+    border-radius: 25px;
+    transition: all 0.4s ease;
+}
+
+.icon-reactor {
+    width: 80px; height: 80px;
+    border: 2px solid var(--neon-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center; justify-content: center;
+    margin: 0 auto 20px;
+    color: var(--neon-green);
+    box-shadow: 0 0 20px var(--neon-glow);
+}
+
+/* --- 5. BUTTONS & FORMS --- */
+.button-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Bagi dua kolom sama besar */
+    gap: 10px;
+    width: 100%;
+}
+.btn-primary {
+        background-color: #9eff00 !important;
+        border-color: #9eff00 !important;
+        color: #000 !important; /* Teks tombol jadi hitam biar kebaca */
+        font-weight: bold !important;
+        box-shadow: 0 0 15px rgba(158, 255, 0, 0.4) !important;
+        max-width: 100%;
+        padding: 10px 20px;
+        display: inline-block;
+        word-wrap: break-word;
+    }
+.btn-primary:hover {
+        background-color: #ffffff !important; /* Pas dihover jadi putih */
+        border-color: #ffffff !important;
+        box-shadow: 0 0 25px rgba(255, 255, 255, 0.6) !important;
+    }
+
+.btn-neon {
+    border: 2px solid var(--neon-green);
+    color: var(--neon-green);
+    background: transparent;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-neon:hover {
+    background: var(--neon-green);
+    color: #000;
+    box-shadow: 0 0 20px var(--neon-green);
+}
+
+/* --- 7. SERVICE & PROJECT --- */
+.service-card {
+        background: rgba(255, 255, 255, 0.05); /* Transparan dikit */
+        border: 1px solid rgba(158, 255, 0, 0.1); 
+        padding: 40px 30px;
+        border-radius: 25px;
+        text-align: center;
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        height: 100%;
+        transition: all 0.5s ease;
+    }
+    .icon-reactor {
+        width: 90px;
+        height: 90px;
+        background: #000; /* Dasar item */
+        border: 2px solid #9eff00; /* Lingkaran ijo */
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 30px;
+        color: #9eff00;
+        font-size: 2.5rem;
+        box-shadow: 0 0 20px rgba(158, 255, 0, 0.3);
+        transition: 0.5s;
+    }
+    /* Teks Judul & Deskripsi */
+    .service-title {
+        color: #ffffff !important;
+        font-weight: 700;
+        margin-bottom: 15px;
+        letter-spacing: 1px;
+    }
+
+    .service-desc {
+        color: #bcbcbc !important; /* Abu-abu terang biar enak dibaca */
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    /* --1 Khusus Dekstop */
+    @media (min-width: 992px) {
+        .service-card {
+            opacity: 1 !important;
+        }
+        .service-card:hover {
+        transform: translateY(-12px);
+        border-color: #9eff00;
+        background: rgba(158, 255, 0, 0.08);
+        box-shadow: 0 15px 40px rgba(158, 255, 0, 0.15);
+    }
+        .service-card:hover .icon-reactor{
+        background: #9eff00;
+        color: #000;
+        box-shadow: 0 0 40px #9eff00;
+        transform: scale(1.1) rotate(360deg);
+    }
+    .service-card:hover .service-title {
+        color: #9eff00 !important; /* Judul berubah ijo pas di-hover */
+    }
+    }
+
+    /*---2 Khusus HP/MOBILE */
+    @media (max-width: 991px) {
+        .service-card{
+            opacity: 0;
+            transform: translateY(30px);
+    }
+        .service-card.is-active {
+            opacity: 1;
+            transform: translateY(-12px);
+            border-color: #9eff00;
+            background: rgba(158, 255, 0, 0.08);
+            box-shadow: 0 15px 40px rgba(158, 255, 0, 0.15);
+    }
+        .service-card.is-active .icon-reactor {
+        background: #9eff00;
+        color: #000;
+        box-shadow: 0 0 40px #9eff00;
+        transform: scale(1.1) rotate(360deg);
+    }
+    .service-card.is-active .service-title {
+        color: #9eff00 !important; /* Judul berubah ijo pas di-hover */
+    }
+    }
+    
+    /* Styling Dasar Project */
+    .project-card-wrapper {
+        transition: transform 0.5s ease;
+        cursor: pointer;
+    }
+
+    .project-name {
+        font-family: 'Consolas', monospace;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    .project-year {
+        color: #666;
+        font-family: 'Courier New', monospace;
+        font-weight: bold;
+    }
+
+    .project-display img {
+        transition: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        filter: grayscale(40%); /* Agak redup dikit pas normal */
+    }
+    .project-header {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 15px;
+    }
+    .project-display {
+        position: relative;
+        background: #000;
+        overflow: hidden;
+        border: 1px solid rgba(158, 255, 0, 0.1);
+        border-radius: 20px;
+    }
+    /* Efek lapisan warna di atas foto */
+    .project-display::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba(158, 255, 0, 0.2), transparent);
+        opacity: 0.5;
+        transition: 0.5s;
+    }
+    .project-display img {
+        width: 100%;
+        height: 300px; /* Atur tinggi seragam biar rapi */
+        object-fit: cover; /* Biar foto gak penyet */
+        filter: grayscale(80%) brightness(0.7);
+        transition: 0.5s;
+    }
+
+    /*---1 KHUSUS PC */
+
+    @media (min-width: 992px) {
+    .project-card-wrapper {
+        opacity: 1 !important;
+    }
+
+    .project-card-wrapper:hover {
+        transform: translateY(-5px);
+    }
+    .project-card-wrapper:hover .project-display {
+        border-color: #9eff00;
+        box-shadow: 0 0 30px rgba(158, 255, 0, 0.2);
+    }
+    .project-card-wrapper:hover .project-display img {
+        transform: scale(1.05);
+        filter: grayscale(0%);
+    }
+    .project-card-wrapper:hover .project-header {
+        border-color: rgba(158, 255, 0, 0.5);
+    }
+    .project-card-wrapper:hover .project-display::after {
+        opacity: 0.1;
+    }
+
+}
+    @media (max-width: 991px) {
+    .project-card-wrapper {
+        opacity: 0;
+    }
+    .project-card-wrapper.is-active {
+        opacity: 1;
+        transform: translateY(-5px);
+    } 
+    .project-card-wrapper.is-active .project-display {
+        border-color: #9eff00;
+        box-shadow: 0 0 30px rgba(158, 255, 0, 0.2);
+    }
+    .project-card-wrapper.is-active .project-display img {
+        transform: scale(1.05);
+        filter: grayscale(0%);
+    }
+    .project-card-wrapper.is-active .project-header {
+        border-color: rgba(158, 255, 0, 0.5);
+    }
+    .project-card-wrapper:hover.is-active .project-display::after {
+        opacity: 0.1;
+    }
+ 
+} 
+.icon-box-small {
+    width: 50px;
+    height: 50px;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    font-size: 1.2rem;
+}
+    /* Styling Dasar Input & Textarea */
+    .contact-form .form-control {
+        background-color: rgba(255, 255, 255, 0.05) !important; /* Hitam transparan */
+        border: 1px solid rgba(158, 255, 0, 0.2) !important; /* Border ijo tipis */
+        color: #ffffff !important; /* Warna teks saat ngetik */
+        border-radius: 8px;
+        padding: 12px 15px;
+        transition: all 0.3s ease;
+    }
+
+    /* Benerin Warna Placeholder (Tulisan yang ga keliatan itu) */
+    .contact-form .form-control::placeholder {
+        color: rgba(255, 255, 255, 0.4) !important; /* Abu-abu terang */
+        font-family: 'Consolas', monospace;
+    }
+
+    /* Efek Fokus: Pas input diklik, border nyala ijo neon */
+    .contact-form .form-control:focus {
+        background-color: rgba(158, 255, 0, 0.05) !important;
+        border-color: #9eff00 !important;
+        box-shadow: 0 0 15px rgba(158, 255, 0, 0.3) !important;
+        outline: none;
+    }
+
+    /* Label di atas input */
+    .contact-form label {
+        color: #9eff00;
+        font-family: 'Consolas', monospace;
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+        display: block;
+    }
+.hover-white:hover {
+    color: #ffffff !important;
+    padding-left: 5px;
+    transition: all 0.3s ease;
+}
+
+footer i:hover {
+    color: #007bff !important;
+    transition: 0.3s;
+}
+/* Cari tag <i> di dalam About dan paksa jadi ijo */
+#about i, .fa-check, .fa-square-check {
+    color: #9eff00 !important;
+    filter: drop-shadow(0 0 5px #9eff00);
+}
+    @media (max-width: 991px) {
+        /* Maksa menu muncul kalo ada class 'active' */
+        #navbarNavManual.active {
+            display: block !important;
+            opacity: 1 !important;
+        }
+        
+        #navbarNavManual {
+            transition: all 0.3s ease;
+            display: none; /* Awalnya sembunyi */
+        }
+
+        .nav-link {
+            padding: 15px !important;
+            border-bottom: 1px solid rgba(158,255,0,0.1);
+        }
+    }
+    /* Mencegah scroll horizontal secara paksa */
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    /* Khusus untuk teks Hero yang gede di screenshot 84 */
+    @media (max-width: 768px) {
+        .display-5 {
+            font-size: 1rem !important; /* Kecilin judul di HP */
+        }
+        .display-4 {
+            font-size: 1.8rem !important;
+        }
+        
+        .hero-content h1 {
+            font-size: 2rem !important;
+        }
+
+        /* Buat section About, biar foto gak terlalu raksasa */
+        #about img {
+            max-width: 80%;
+            margin-bottom: 30px;
+        }
+
+        /* Atur padding section biar gak terlalu sesek */
+        section {
+            padding: 50px 0 !important;
+        }
+    }
+    @media (max-width: 991px) {
+    .navbar-collapse {
+        background: rgba(0, 0, 0, 0.95); /* Kasih background item pekat pas menu dibuka */
+        padding: 20px;
+        border-bottom: 1px solid #9eff00;
+        backdrop-filter: blur(10px);
+    }
+}
+
+/* --- 6. KEYFRAMES --- */
+@keyframes fadeInSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+@keyframes swipeUp {
+    0% { opacity: 0; transform: translateY(50px); filter: blur(10px); }
+    100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+}
+
+/* --- 7. RESPONSIVE --- */
+@media (max-width: 768px) {
+    .main-text { font-size: 2.5rem !important; }
+    .button-group { grid-template-columns: 1fr; }
+    section { padding: 50px 0 !important; }
+}
