@@ -88,7 +88,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .hero-sub-text {
-        font-family: 'Courier New', monospace;
+        font-family: 'ubuntu mono','monospace';
         color: #fff !important; 
         font-size: 0.9rem;
         letter-spacing: 3px;
@@ -522,3 +522,4 @@ footer i:hover {
     section { padding: 50px 0 !important; }
 
 }
+
