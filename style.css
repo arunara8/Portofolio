@@ -60,8 +60,8 @@ h1, h2, h3, h4, h5, h6 {
     background: transparent !important;
     border: none !important;
     padding-top: 20px;
-        padding-right: 25px;
-        padding-left: 25px;
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
 .navbar.scrolled {
@@ -90,7 +90,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 .hero-sub-text {
-        font-family: 'ubuntu mono','monospace';
+        font-family: 'monospace';
         color: #fff !important; 
         font-size: 0.9rem;
         letter-spacing: 3px;
@@ -119,18 +119,6 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 3rem;
     animation: blink 0.7s infinite;
 }
-#typing-text {
-    display: inline; /* Ini kunci biar lebarnya ngikutin panjang teks doang */
-    border-right: 3px solid #9eff00; /* Ini kursornya */
-    padding-right: 5px;
-    animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-    0%, 100% { border-color: transparent; }
-    50% { border-color: #9eff00; }
-}
-
 /* --- 4. ABOUT & SERVICES (NEON STYLE) --- */
 .about-img-container {
     position: relative;
@@ -535,6 +523,7 @@ footer i:hover {
     section { padding: 50px 0 !important; }
 
 }
+
 
 
 
