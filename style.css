@@ -14,8 +14,8 @@ body, html {
     overflow-x: hidden;
 }
 .container {
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 45px;
+    padding-right: 45px;
     max-width: 100%;
     box-sizing: border-box; /* Biar padding gak nambah lebar element */
 }
@@ -533,6 +533,7 @@ footer i:hover {
     section { padding: 50px 0 !important; }
 
 }
+
 
 
 
