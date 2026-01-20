@@ -73,6 +73,8 @@ h1, h2, h3, h4, h5, h6 {
 .navbar .nav-link, .navbar-brand {
     color: #ffffff !important;
     font-weight: 600;
+    padding-right: 20px;
+    padding-left: 20px;
 }
 
 /* --- 3. HERO SECTION & ANIMATIONS --- */
@@ -521,6 +523,7 @@ footer i:hover {
     section { padding: 50px 0 !important; }
 
 }
+
 
 
 
