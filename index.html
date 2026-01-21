@@ -421,10 +421,29 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 </script>
+        <script>
+        function sendToWhatsApp() {
+    const name = document.getElementById('contact_name').value;
+    const message = document.getElementById('contact_message').value;
+    const phone = "6288293427818"; // Nomor lu udah bener
+
+    if (name === "" || message === "") {
+        alert("Isi nama ama pesan dulu dong bre, biar enak dichatnya!");
+        return;
+    }
+
+    // Gabungin Nama + Pesan buat jadi draft di WA
+    const text = `Halo Anubhawa, Nama saya *${name}*. %0A%0A*Pesan:* %0A${message}`;
+    
+    // Buka tab baru ke WA
+    window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
+}
+            </script>
 </body>
 </footer>
 
 </html>
+
 
 
 
