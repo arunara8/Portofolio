@@ -194,33 +194,38 @@ h1, h2, h3, h4, h5, h6 {
     color: #000;
     box-shadow: 0 0 20px var(--neon-green);
 }
-.lang-switcher .btn-lang {
-            background: transparent;
-            border: 1px solid #9eff00;
-            color: #9eff00;
-            font-size: 0.75rem;
-            padding: 2px 8px;
-            margin-left: 5px;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-        .lang-switcher .btn-lang:hover, 
-        .lang-switcher .btn-lang.active {
-            background: #9eff00;
-            color: #000;
-            box-shadow: 0 0 10px rgba(158, 255, 0, 0.5);
-        }
-        /* Biar rapi di Mobile */
-        @media (max-width: 991px) {
-            .lang-switcher-mobile {
-                position: absolute;
-                right: 60px; /* Geser dikit dari tombol hamburger */
-                top: 18px;
-            }
-        }
+/* Styling Tombol Bahasa di Dalam Menu */
+.lang-switcher {
+    display: flex;
+    gap: 5px;
+    justify-content: center; /* Tengahin pas di mobile */
+}
 
+.lang-switcher .btn-lang {
+    background: transparent;
+    border: 1px solid rgba(158, 255, 0, 0.4);
+    color: #9eff00;
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.lang-switcher .btn-lang.active {
+    background: #9eff00;
+    color: #000;
+    box-shadow: 0 0 10px rgba(158, 255, 0, 0.5);
+    border-color: #9eff00;
+}
+
+/* Jarak khusus di Desktop biar nggak terlalu nempel */
+@media (min-width: 992px) {
+    .lang-switcher {
+        margin-left: 15px;
+    }
+}
 /* --- 7. SERVICE & PROJECT --- */
 .service-card {
         background: rgba(255, 255, 255, 0.05); /* Transparan dikit */
