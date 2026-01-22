@@ -13,7 +13,7 @@
     backSpeed: 30,    // Kecepatan hapus
     backDelay: 2000,  // Jeda sebelum hapus (2 detik)
     loop: true,       // Biar muter terus
-    cursorChar: '|',  // Bentuk kursornya
+    cursorChar: '',  // Bentuk kursornya
   });
 
     // --- SCRIPT CODE RAIN BACKGROUND ---
@@ -304,4 +304,5 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('preferredLang') || 'en';
     changeLang(savedLang);
 });
+
 
