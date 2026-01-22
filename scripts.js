@@ -7,8 +7,8 @@
         }
 } 
       
-<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-<script>
+src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+
   var typed = new Typed('#typed', {
     strings: ['web designer', 'front-end developer', 'full stack engineer'],
     typeSpeed: 80,    // Kecepatan ngetik
@@ -304,4 +304,5 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('preferredLang') || 'en';
     changeLang(savedLang);
 });
+
 
