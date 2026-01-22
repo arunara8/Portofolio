@@ -555,47 +555,73 @@ footer i:hover {
     section { padding: 50px 0 !important; }
 
 }
-/* Container Utama untuk Fade Effect */
-/* Container Utama untuk Fade Effect */
+/* =========================================
+   TECH STACK SLIDER (ORIGINAL COLORS)
+========================================= */
+
+/* Container Utama (Tetap sama) */
 .tech-stack-slider {
     width: 100%;
     overflow: hidden;
     position: relative;
+    padding: 15px 0;
     /* Efek transparan di kiri dan kanan */
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
+/* Jalur Animasi (Tetap sama) */
 .tech-track-left, .tech-track-right {
     display: flex;
     width: max-content;
     padding: 10px 0;
 }
 
-/* Animasi Baris 1 (Ke Kiri) */
-.tech-track-left {
-    animation: scrollLeft 30s linear infinite;
-}
+/* Kecepatan dan Arah Animasi (Tetap sama) */
+.tech-track-left { animation: scrollLeft 35s linear infinite; }
+.tech-track-right { animation: scrollRight 35s linear infinite; }
 
-/* Animasi Baris 2 (Ke Kanan) */
-.tech-track-right {
-    animation: scrollRight 30s linear infinite;
-}
-
-/* Styling Item */
+/* Styling Item General */
 .tech-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 0 40px;
+    gap: 12px;
+    padding: 0 35px; /* Jarak antar item */
+    color: #ffffff; /* Teks jadi PUTIH biar netral dan kebaca */
     font-weight: 600;
+    font-size: 1.1rem;
 }
 
+/* Styling Ukuran Ikon Default */
 .tech-item i {
-    font-size: 2rem;
+    font-size: 2.2rem; /* Ikon dibesarin dikit biar gagah */
+    transition: transform 0.3s ease;
+    /* Catatan: Warna neon global dihapus dari sini */
 }
 
-/* Logic Animasi */
+/* Hover Effect: Cuma membesar, warnanya tetap asli */
+.tech-item:hover i {
+    transform: scale(1.2);
+}
+
+/* --- WARNA ASLI BRAND (The Real Deal) --- */
+
+/* Baris 1 */
+.tech-item .fa-laravel { color: #FF2D20; } /* Merah Laravel */
+.tech-item .fa-php { color: #777BB4; }     /* Ungu/Biru PHP */
+.tech-item .fa-bootstrap { color: #7952B3; } /* Ungu Bootstrap */
+.tech-item .fa-database { color: #00758F; } /* Biru MySQL/Database */
+.tech-item .fa-js { color: #F7DF1E; }       /* Kuning JS */
+
+/* Baris 2 */
+.tech-item .fa-figma { color: #F24E1E; }    /* Merah Oranye Figma */
+.tech-item .fa-html5 { color: #E34F26; }    /* Oranye HTML5 */
+.tech-item .fa-css3-alt { color: #1572B6; } /* Biru CSS3 */
+.tech-item .fa-github { color: #ffffff; }   /* GitHub Putih (karena bg hitam) */
+.tech-item .fa-code { color: #9eff00; }     /* Clean Code tetep Neon lu (sebagai ciri khas) */
+
+
+/* Keyframes Animasi (Tetap sama) */
 @keyframes scrollLeft {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
@@ -606,7 +632,7 @@ footer i:hover {
     100% { transform: translateX(0); }
 }
 
-/* Pause pas hover biar user bisa liat jelas */
+/* Pause pas hover */
 .tech-stack-slider:hover .tech-track-left,
 .tech-stack-slider:hover .tech-track-right {
     animation-play-state: paused;
