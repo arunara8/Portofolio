@@ -556,6 +556,7 @@ footer i:hover {
 
 }
 /* Container Utama untuk Fade Effect */
+/* Container Utama untuk Fade Effect */
 .tech-stack-slider {
     width: 100%;
     overflow: hidden;
@@ -581,23 +582,35 @@ footer i:hover {
     animation: scrollRight 30s linear infinite;
 }
 
-/* Gak usah setting warna lagi, udah otomatis dari class 'colored' */
-.tech-item i {
-    font-size: 2.5rem; /* Ukuran icon */
+/* Styling Item */
+.tech-item {
     display: flex;
     align-items: center;
-    transition: transform 0.3s ease;
-}
-
-.tech-item:hover i {
-    transform: scale(1.2);
-}
-
-.tech-item span {
-    color: white; /* Teksnya tetep putih biar rapi */
+    gap: 10px;
+    padding: 0 40px;
     font-weight: 600;
 }
 
+.tech-item i {
+    font-size: 2rem;
+}
+
+/* Logic Animasi */
+@keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+/* Pause pas hover biar user bisa liat jelas */
+.tech-stack-slider:hover .tech-track-left,
+.tech-stack-slider:hover .tech-track-right {
+    animation-play-state: paused;
+}
 
 
 
