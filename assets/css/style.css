@@ -555,49 +555,47 @@ footer i:hover {
     section { padding: 50px 0 !important; }
 
 }
-/* =========================================
-   TECH STACK SLIDER (ORIGINAL COLORS)
-========================================= */
-
-/* Container Utama (Tetap sama) */
+/* Container Utama untuk Fade Effect */
 .tech-stack-slider {
     width: 100%;
     overflow: hidden;
     position: relative;
-    padding: 15px 0;
     /* Efek transparan di kiri dan kanan */
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
-/* Jalur Animasi (Tetap sama) */
 .tech-track-left, .tech-track-right {
     display: flex;
     width: max-content;
     padding: 10px 0;
 }
 
-/* Kecepatan dan Arah Animasi (Tetap sama) */
-.tech-track-left { animation: scrollLeft 35s linear infinite; }
-.tech-track-right { animation: scrollRight 35s linear infinite; }
+/* Animasi Baris 1 (Ke Kiri) */
+.tech-track-left {
+    animation: scrollLeft 30s linear infinite;
+}
 
-/* Gak usah setting warna lagi, udah otomatis dari class 'colored' */
-.tech-item i {
-    font-size: 2.5rem; /* Ukuran icon */
+/* Animasi Baris 2 (Ke Kanan) */
+.tech-track-right {
+    animation: scrollRight 30s linear infinite;
+}
+
+/* Styling Item */
+.tech-item {
     display: flex;
     align-items: center;
-    transition: transform 0.3s ease;
-}
-
-.tech-item:hover i {
-    transform: scale(1.2);
-}
-
-.tech-item span {
-    color: white; /* Teksnya tetep putih biar rapi */
+    gap: 10px;
+    padding: 0 40px;
+    color: #9eff00;
     font-weight: 600;
 }
-/* Keyframes Animasi (Tetap sama) */
+
+.tech-item i {
+    font-size: 2rem;
+}
+
+/* Logic Animasi */
 @keyframes scrollLeft {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
@@ -608,12 +606,11 @@ footer i:hover {
     100% { transform: translateX(0); }
 }
 
-/* Pause pas hover */
+/* Pause pas hover biar user bisa liat jelas */
 .tech-stack-slider:hover .tech-track-left,
 .tech-stack-slider:hover .tech-track-right {
     animation-play-state: paused;
 }
-
 
 
 
