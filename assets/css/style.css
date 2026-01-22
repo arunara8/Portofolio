@@ -555,74 +555,62 @@ footer i:hover {
     section { padding: 50px 0 !important; }
 
 }
-/* Container Slider */
+/* Container Utama untuk Fade Effect */
 .tech-stack-slider {
     width: 100%;
     overflow: hidden;
-    padding: 20px 0;
     position: relative;
-    /* Efek Fade In & Fade Out di Pinggir */
-    mask-image: linear-gradient(
-        to right,
-        transparent,
-        black 15%,
-        black 85%,
-        transparent
-    );
-    -webkit-mask-image: linear-gradient(
-        to right,
-        transparent,
-        black 15%,
-        black 85%,
-        transparent
-    );
+    /* Efek transparan di kiri dan kanan */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
-/* Jalur Icon (Flexbox) */
-.tech-track {
+.tech-track-left, .tech-track-right {
     display: flex;
     width: max-content;
-    animation: scrollTech 25s linear infinite; /* Kecepatan bisa diatur */
+    padding: 10px 0;
 }
 
-/* Styling Tiap Item/Icon */
+/* Animasi Baris 1 (Ke Kiri) */
+.tech-track-left {
+    animation: scrollLeft 30s linear infinite;
+}
+
+/* Animasi Baris 2 (Ke Kanan) */
+.tech-track-right {
+    animation: scrollRight 30s linear infinite;
+}
+
+/* Styling Item */
 .tech-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 0 30px;
-    color: #9eff00; /* Warna neon lu */
+    gap: 10px;
+    padding: 0 40px;
+    color: #9eff00;
     font-weight: 600;
-    font-size: 1.1rem;
-    white-space: nowrap;
 }
 
 .tech-item i {
-    font-size: 1.8rem;
-    transition: transform 0.3s ease;
+    font-size: 2rem;
 }
 
-/* Hover Effect biar interaktif */
-.tech-item:hover i {
-    transform: scale(1.2);
-    color: #fff;
+/* Logic Animasi */
+@keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
 
-/* Animasi Jalan Ke Samping */
-@keyframes scrollTech {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-50%); /* Geser setengah lebar total track */
-    }
+@keyframes scrollRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
 }
 
-/* Berhenti pas di-hover biar user bisa baca */
-.tech-stack-slider:hover .tech-track {
+/* Pause pas hover biar user bisa liat jelas */
+.tech-stack-slider:hover .tech-track-left,
+.tech-stack-slider:hover .tech-track-right {
     animation-play-state: paused;
 }
-
 
 
 
