@@ -115,11 +115,12 @@ h1, h2, h3, h4, h5, h6 {
     }
 
 .typed-cursor {
-    color: var(--neon-green);
-    font-size: 3rem;
-    animation: blink 0.7s infinite;
-}
-/* --- 4. ABOUT & SERVICES (NEON STYLE) --- */
+    display: inline;
+    border-right: 3px solid #ffc107;
+    padding-right: 5px;
+    animation: 0.7s infinite ;
+    color: #ffc107; /* samain sama warna text-warning */
+}/* --- 4. ABOUT & SERVICES (NEON STYLE) --- */
 .about-img-container {
     position: relative;
     display: inline-block;
@@ -549,6 +550,7 @@ footer i:hover {
     section { padding: 50px 0 !important; }
 
 }
+
 
 
 
