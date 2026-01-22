@@ -5,9 +5,7 @@
         } else {
             nav.classList.remove('scrolled');
         }
-} 
-      
-src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+}
 
   var typed = new Typed('#typed', {
     strings: ['web designer', 'front-end developer', 'full stack engineer'],
@@ -304,5 +302,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('preferredLang') || 'en';
     changeLang(savedLang);
 });
+
 
 
