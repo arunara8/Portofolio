@@ -10,29 +10,29 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-        <div class="container">
-            <a class="navbar-brand text-neon fw-bold" href="#">ARUNARA</a>        
-            <button class="navbar-toggler border-0" type="button" id="manualToggler">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNavManual">
-                <ul class="navbar-nav ms-auto text-center py-3 py-lg-0">
-                    <li class="nav-item"><a class="nav-link text-white" href="#home" data-lang="nav_home">Home</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#about" data-lang="nav_about">About</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#services" data-lang="nav_service">Service</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#project" data-lang="nav_project">Project</a></li>
-                    <li class="nav-item"><a class="nav-link text-white" href="#contact" data-lang="nav_contact">Contact</a></li>
-                    
-                    <li class="nav-item d-none d-lg-flex align-items-center ms-lg-3 lang-switcher">
-                        <button onclick="changeLang('id')" class="btn-lang" id="btn-id">ID</button>
-                        <button onclick="changeLang('en')" class="btn-lang" id="btn-en">EN</button>
-                    </li>
-                </ul>
-            </div>
+    <div class="container">
+        <a class="navbar-brand text-neon fw-bold" href="#">ARUNARA</a>        
+        
+        <button class="navbar-toggler border-0" type="button" id="manualToggler">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNavManual">
+            <ul class="navbar-nav ms-auto text-center py-3 py-lg-0 align-items-center">
+                <li class="nav-item"><a class="nav-link text-white" href="#home" data-lang="nav_home">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#about" data-lang="nav_about">About</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#services" data-lang="nav_service">Service</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#project" data-lang="nav_project">Project</a></li>
+                <li class="nav-item"><a class="nav-link text-white" href="#contact" data-lang="nav_contact">Contact</a></li>
+                
+                <li class="nav-item mt-3 mt-lg-0 ms-lg-3 lang-switcher">
+                    <button onclick="changeLang('id')" class="btn-lang" id="btn-id">ID</button>
+                    <button onclick="changeLang('en')" class="btn-lang" id="btn-en">EN</button>
+                </li>
+            </ul>
         </div>
-    </nav>
-
+    </div>
+</nav>
     <main>
         <section id="home" class="vh-100 d-flex align-items-center position-relative overflow-hidden" style="background: #000;">
             <canvas id="code-rain-canvas"></canvas>
@@ -297,6 +297,7 @@
     <script src="assets/js/script.js"></script>
 </body>
 </html>
+
 
 
 
