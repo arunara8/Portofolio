@@ -17,7 +17,7 @@ body, html {
     padding-left: 15px;
     padding-right: 15px;
     max-width: 100%;
-    box-sizing: border-box; /* Biar padding gak nambah lebar element */
+    box-sizing: border-box;
 }
 .door-container {
         display: flex;
@@ -581,46 +581,22 @@ footer i:hover {
 .tech-track-left { animation: scrollLeft 35s linear infinite; }
 .tech-track-right { animation: scrollRight 35s linear infinite; }
 
-/* Styling Item General */
-.tech-item {
+/* Gak usah setting warna lagi, udah otomatis dari class 'colored' */
+.tech-item i {
+    font-size: 2.5rem; /* Ukuran icon */
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 0 35px; /* Jarak antar item */
-    color: #ffffff; /* Teks jadi PUTIH biar netral dan kebaca */
-    font-weight: 600;
-    font-size: 1.1rem;
-}
-
-/* Styling Ukuran Ikon Default */
-.tech-item i {
-    font-size: 2.2rem; /* Ikon dibesarin dikit biar gagah */
     transition: transform 0.3s ease;
-    /* Catatan: Warna neon global dihapus dari sini */
 }
 
-/* Hover Effect: Cuma membesar, warnanya tetap asli */
 .tech-item:hover i {
     transform: scale(1.2);
 }
 
-/* --- WARNA ASLI BRAND (The Real Deal) --- */
-
-/* Baris 1 */
-.tech-item .fa-laravel { color: #FF2D20; } /* Merah Laravel */
-.tech-item .fa-php { color: #777BB4; }     /* Ungu/Biru PHP */
-.tech-item .fa-bootstrap { color: #7952B3; } /* Ungu Bootstrap */
-.tech-item .fa-database { color: #00758F; } /* Biru MySQL/Database */
-.tech-item .fa-js { color: #F7DF1E; }       /* Kuning JS */
-
-/* Baris 2 */
-.tech-item .fa-figma { color: #F24E1E; }    /* Merah Oranye Figma */
-.tech-item .fa-html5 { color: #E34F26; }    /* Oranye HTML5 */
-.tech-item .fa-css3-alt { color: #1572B6; } /* Biru CSS3 */
-.tech-item .fa-github { color: #ffffff; }   /* GitHub Putih (karena bg hitam) */
-.tech-item .fa-code { color: #9eff00; }     /* Clean Code tetep Neon lu (sebagai ciri khas) */
-
-
+.tech-item span {
+    color: white; /* Teksnya tetep putih biar rapi */
+    font-weight: 600;
+}
 /* Keyframes Animasi (Tetap sama) */
 @keyframes scrollLeft {
     0% { transform: translateX(0); }
