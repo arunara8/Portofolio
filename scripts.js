@@ -136,4 +136,83 @@ var typed=new Typed('#typed', {
     animatedElements.forEach(el => {
         scrollObserver.observe(el);
     });
+
+});
+/* --- FEATURE: MULTI-LANGUAGE SYSTEM --- */
+const translations = {
+    'id': {
+        'nav_home': 'Beranda',
+        'nav_about': 'Tentang',
+        'nav_service': 'Layanan',
+        'nav_project': 'Proyek',
+        'nav_contact': 'Kontak',
+        'hero_hi': 'HALO, SAYA ARUNARA, SEORANG...',
+        'hero_tagline': 'MENCIPTAKAN MASA DEPAN WEB, PIXEL DEMI PIXEL',
+        'btn_work': 'karya saya',
+        'btn_contact': 'hubungi saya',
+        'about_title_1': 'TENTANG',
+        'about_title_2': ' SAYA',
+        'about_header': 'Full Stack Developer Berbasis di Indonesia',
+        'about_desc': "Halo! Saya Aditya Nugraha. Seorang Full Stack Developer yang terobsesi dengan kode bersih dan pengalaman pengguna yang lancar. Saya ahli dalam membangun produk digital yang tidak hanya bagus dilihat, tapi juga performa maksimal.",
+        'btn_hire': 'Rekrut Saya',
+        'btn_cv': 'Unduh CV',
+        'service_title': 'LAYANAN KAMI',
+        'contact_title': 'Kontak Saya',
+        'contact_header': 'Mari Mulai Kerjasama',
+        'footer_desc': 'Membangun solusi digital yang fungsional dan estetik dengan teknologi terbaru.',
+        'copyright': '© 2026 Portofolio Saya. Dibuat dengan cinta.'
+    },
+    'en': {
+        'nav_home': 'Home',
+        'nav_about': 'About',
+        'nav_service': 'Service',
+        'nav_project': 'Project',
+        'nav_contact': 'Contact',
+        'hero_hi': "HI, I'M ARUNARA, A...",
+        'hero_tagline': 'CRAFTING THE FUTURE OF WEB, ONE PIXEL AT A TIME',
+        'btn_work': 'my work',
+        'btn_contact': 'contact me',
+        'about_title_1': 'ABOUT',
+        'about_title_2': ' ME',
+        'about_header': 'A Full Stack Developer based in Indonesia',
+        'about_desc': "Hello! I'm Aditya Nugraha. A Full Stack Developer obsessed with clean code and seamless user experience. I specialize in building digital products that not only look good, but also perform at their best.",
+        'btn_hire': 'Hire Me',
+        'btn_cv': 'Download CV',
+        'service_title': 'OUR SERVICES',
+        'contact_title': 'Contact Me',
+        'contact_header': "Let's Start Working Together",
+        'footer_desc': 'Building functional and aesthetic digital solutions with the latest technology.',
+        'copyright': '© 2026 My Portfolio. Built with Love.'
+    }
+};
+
+// Fungsi Ganti Bahasa
+function changeLang(lang) {
+    localStorage.setItem('preferredLang', lang);
+    
+    document.querySelectorAll('[data-lang]').forEach(el => {
+        const key = el.getAttribute('data-lang');
+        if (translations[lang][key]) {
+            el.innerText = translations[lang][key];
+        }
+    });
+
+    // Update status tombol aktif
+    document.querySelectorAll('.btn-lang').forEach(btn => btn.classList.remove('active'));
+    if(lang === 'id') {
+        document.getElementById('lang-id').classList.add('active');
+        document.getElementById('lang-id-mob').classList.add('active');
+    } else {
+        document.getElementById('lang-en').classList.add('active');
+        document.getElementById('lang-en-mob').classList.add('active');
+    }
+
+    // Update Typed.js khusus (Jika perlu ganti list kata-katanya)
+    // if (window.typedInstance) { ... ganti strings ... }
+}
+
+// Cek bahasa saat halaman dimuat
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('preferredLang') || 'en';
+    changeLang(savedLang);
 });
