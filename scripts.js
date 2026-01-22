@@ -1,20 +1,4 @@
-function sendToWhatsApp() {
-    const name = document.getElementById('contact_name').value;
-    const message = document.getElementById('contact_message').value;
-    const phone = "6288293427818"; // Nomor lu udah bener
-
-    if (name === "" || message === "") {
-        alert("Isi nama ama pesan dulu dong bre, biar enak dichatnya!");
-        return;
-    }
-
-    // Gabungin Nama + Pesan buat jadi draft di WA
-    const text = `Halo Anubhawa, Nama saya *${name}*. %0A%0A*Pesan:* %0A${message}`;
-    
-    // Buka tab baru ke WA
-    window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
-}
-window.onscroll = function() {
+  window.onscroll = function() {
         var nav = document.querySelector('.navbar');
         if (window.pageYOffset > 50) { // Jika di-scroll lebih dari 50px
             nav.classList.add('scrolled');
@@ -22,15 +6,19 @@ window.onscroll = function() {
             nav.classList.remove('scrolled');
         }
 } 
-var typed=new Typed('#typed', {
+      
+<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script>
+  var typed = new Typed('#typed', {
     strings: ['web designer', 'front-end developer', 'full stack engineer'],
     typeSpeed: 80,    // Kecepatan ngetik
     backSpeed: 30,    // Kecepatan hapus
     backDelay: 2000,  // Jeda sebelum hapus (2 detik)
     loop: true,       // Biar muter terus
-    cursorChar: '',  // Bentuk kursornya
+    cursorChar: '|',  // Bentuk kursornya
   });
-  // --- SCRIPT CODE RAIN BACKGROUND ---
+
+    // --- SCRIPT CODE RAIN BACKGROUND ---
     const canvas = document.getElementById('code-rain-canvas');
     const ctx = canvas.getContext('2d');
 
@@ -93,6 +81,7 @@ var typed=new Typed('#typed', {
         canvas.height = window.innerHeight;
     });
     // ------------------------------------
+
     document.addEventListener('DOMContentLoaded', function() {
         const btn = document.getElementById('manualToggler');
         const menu = document.getElementById('navbarNavManual');
@@ -112,7 +101,8 @@ var typed=new Typed('#typed', {
             });
         }
     });
-    document.addEventListener('DOMContentLoaded', function() {
+
+document.addEventListener('DOMContentLoaded', function() {
     // Daftarkan semua elemen yang mau dikasih efek scroll
     const animatedElements = document.querySelectorAll('.service-card, .project-card-wrapper');
 
@@ -136,83 +126,20 @@ var typed=new Typed('#typed', {
     animatedElements.forEach(el => {
         scrollObserver.observe(el);
     });
-
 });
-/* --- FEATURE: MULTI-LANGUAGE SYSTEM --- */
-const translations = {
-    'id': {
-        'nav_home': 'Beranda',
-        'nav_about': 'Tentang',
-        'nav_service': 'Layanan',
-        'nav_project': 'Proyek',
-        'nav_contact': 'Kontak',
-        'hero_hi': 'HALO, SAYA ARUNARA, SEORANG...',
-        'hero_tagline': 'MENCIPTAKAN MASA DEPAN WEB, PIXEL DEMI PIXEL',
-        'btn_work': 'karya saya',
-        'btn_contact': 'hubungi saya',
-        'about_title_1': 'TENTANG',
-        'about_title_2': ' SAYA',
-        'about_header': 'Full Stack Developer Berbasis di Indonesia',
-        'about_desc': "Halo! Saya Aditya Nugraha. Seorang Full Stack Developer yang terobsesi dengan kode bersih dan pengalaman pengguna yang lancar. Saya ahli dalam membangun produk digital yang tidak hanya bagus dilihat, tapi juga performa maksimal.",
-        'btn_hire': 'Rekrut Saya',
-        'btn_cv': 'Unduh CV',
-        'service_title': 'LAYANAN KAMI',
-        'contact_title': 'Kontak Saya',
-        'contact_header': 'Mari Mulai Kerjasama',
-        'footer_desc': 'Membangun solusi digital yang fungsional dan estetik dengan teknologi terbaru.',
-        'copyright': '© 2026 Portofolio Saya. Dibuat dengan cinta.'
-    },
-    'en': {
-        'nav_home': 'Home',
-        'nav_about': 'About',
-        'nav_service': 'Service',
-        'nav_project': 'Project',
-        'nav_contact': 'Contact',
-        'hero_hi': "HI, I'M ARUNARA, A...",
-        'hero_tagline': 'CRAFTING THE FUTURE OF WEB, ONE PIXEL AT A TIME',
-        'btn_work': 'my work',
-        'btn_contact': 'contact me',
-        'about_title_1': 'ABOUT',
-        'about_title_2': ' ME',
-        'about_header': 'A Full Stack Developer based in Indonesia',
-        'about_desc': "Hello! I'm Aditya Nugraha. A Full Stack Developer obsessed with clean code and seamless user experience. I specialize in building digital products that not only look good, but also perform at their best.",
-        'btn_hire': 'Hire Me',
-        'btn_cv': 'Download CV',
-        'service_title': 'OUR SERVICES',
-        'contact_title': 'Contact Me',
-        'contact_header': "Let's Start Working Together",
-        'footer_desc': 'Building functional and aesthetic digital solutions with the latest technology.',
-        'copyright': '© 2026 My Portfolio. Built with Love.'
-    }
-};
+        function sendToWhatsApp() {
+    const name = document.getElementById('contact_name').value;
+    const message = document.getElementById('contact_message').value;
+    const phone = "6288293427818"; // Nomor lu udah bener
 
-// Fungsi Ganti Bahasa
-function changeLang(lang) {
-    localStorage.setItem('preferredLang', lang);
+    if (name === "" || message === "") {
+        alert("Isi nama ama pesan dulu dong bre, biar enak dichatnya!");
+        return;
+    }
+
+    // Gabungin Nama + Pesan buat jadi draft di WA
+    const text = `Halo Anubhawa, Nama saya *${name}*. %0A%0A*Pesan:* %0A${message}`;
     
-    document.querySelectorAll('[data-lang]').forEach(el => {
-        const key = el.getAttribute('data-lang');
-        if (translations[lang][key]) {
-            el.innerText = translations[lang][key];
-        }
-    });
-
-    // Update status tombol aktif
-    document.querySelectorAll('.btn-lang').forEach(btn => btn.classList.remove('active'));
-    if(lang === 'id') {
-        document.getElementById('lang-id').classList.add('active');
-        document.getElementById('lang-id-mob').classList.add('active');
-    } else {
-        document.getElementById('lang-en').classList.add('active');
-        document.getElementById('lang-en-mob').classList.add('active');
-    }
-
-    // Update Typed.js khusus (Jika perlu ganti list kata-katanya)
-    // if (window.typedInstance) { ... ganti strings ... }
+    // Buka tab baru ke WA
+    window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
 }
-
-// Cek bahasa saat halaman dimuat
-document.addEventListener('DOMContentLoaded', () => {
-    const savedLang = localStorage.getItem('preferredLang') || 'en';
-    changeLang(savedLang);
-});
