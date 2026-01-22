@@ -555,46 +555,50 @@ footer i:hover {
     section { padding: 50px 0 !important; }
 
 }
-/* Container Utama untuk Fade Effect */
+/* Container Utama Slider */
 .tech-stack-slider {
     width: 100%;
     overflow: hidden;
     position: relative;
-    /* Efek transparan di kiri dan kanan */
+    /* Efek Fade In/Out di Pinggir */
     mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
     -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
-.tech-track-left, .tech-track-right {
-    display: flex;
-    width: max-content;
-    padding: 10px 0;
-}
+/* Track Animasi */
+.tech-track-left { display: flex; width: max-content; animation: scrollLeft 30s linear infinite; }
+.tech-track-right { display: flex; width: max-content; animation: scrollRight 30s linear infinite; }
 
-/* Animasi Baris 1 (Ke Kiri) */
-.tech-track-left {
-    animation: scrollLeft 30s linear infinite;
-}
-
-/* Animasi Baris 2 (Ke Kanan) */
-.tech-track-right {
-    animation: scrollRight 30s linear infinite;
-}
-
-/* Styling Item */
+/* Styling Item Dasar */
 .tech-item {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     padding: 0 40px;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 1.2rem;
 }
 
 .tech-item i {
-    font-size: 2rem;
+    font-size: 2.5rem; /* Ukuran icon agak gede biar mantap */
+    transition: transform 0.3s ease;
 }
 
-/* Logic Animasi */
+.tech-item:hover i { transform: scale(1.2); }
+
+/* --- WARNA ASLI ICON & TEKS (Custom Classes) --- */
+.t-laravel { color: #FF2D20; }
+.t-php { color: #777BB4; }
+.t-bootstrap { color: #7952B3; }
+.t-mysql { color: #00758F; }
+.t-javascript { color: #F7DF1E; }
+.t-figma { color: #F24E1E; }
+.t-html { color: #E34F26; }
+.t-css { color: #1572B6; }
+.t-github { color: #FFFFFF; } /* Github tetep putih biar kontras */
+.t-clean { color: #9eff00; }  /* Clean code pake neon lu */
+
+/* Keyframes */
 @keyframes scrollLeft {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
@@ -605,12 +609,11 @@ footer i:hover {
     100% { transform: translateX(0); }
 }
 
-/* Pause pas hover biar user bisa liat jelas */
+/* Berhenti pas di-hover */
 .tech-stack-slider:hover .tech-track-left,
 .tech-stack-slider:hover .tech-track-right {
     animation-play-state: paused;
 }
-
 
 
 
