@@ -258,52 +258,27 @@ const translations = {
 };
 
 function changeLang(lang) {
-    // 1. Simpan pilihan bahasa ke memori browser
     localStorage.setItem('preferredLang', lang);
 
-    // 2. Cari semua elemen yang punya atribut 'data-lang'
     document.querySelectorAll('[data-lang]').forEach(element => {
         const key = element.getAttribute('data-lang');
         const text = translations[lang][key];
 
         if (text) {
-            // Cek apakah elemen ini input/textarea (untuk ganti placeholder)
             if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
                 element.placeholder = text;
             } else {
-                // Gunakan innerHTML biar tag warna (span) tetep jalan
                 element.innerHTML = text;
             }
         }
     });
 
-    // 3. Update tampilan tombol aktif (Desktop & Mobile)
-    updateActiveButton(lang, 'btn-id', 'btn-en');
-    updateActiveButton(lang, 'btn-id-mob', 'btn-en-mob');
-}
-
-function updateActiveButton(lang, idBtn, enBtn) {
-    const btnId = document.getElementById(idBtn);
-    const btnEn = document.getElementById(enBtn);
+    // Update tombol aktif (Satu set aja cukup)
+    const btnId = document.getElementById('btn-id');
+    const btnEn = document.getElementById('btn-en');
     
-    // Reset class active
-    if(btnId) btnId.classList.remove('active');
-    if(btnEn) btnEn.classList.remove('active');
-
-    // Set class active sesuai pilihan
-    if (lang === 'id' && btnId) {
-        btnId.classList.add('active');
-    } else if (lang === 'en' && btnEn) {
-        btnEn.classList.add('active');
-    }
+    if(btnId) btnId.classList.toggle('active', lang === 'id');
+    if(btnEn) btnEn.classList.toggle('active', lang === 'en');
 }
-
-// 4. Jalankan otomatis saat web pertama kali dibuka
-document.addEventListener('DOMContentLoaded', () => {
-    // Cek apakah user pernah milih bahasa, kalau belum default ke 'en'
-    const savedLang = localStorage.getItem('preferredLang') || 'en';
-    changeLang(savedLang);
-});
-
 
 
