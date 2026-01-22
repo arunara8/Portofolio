@@ -7,292 +7,328 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* CSS Tambahan Khusus Tombol Bahasa */
+        .lang-switcher .btn-lang {
+            background: transparent;
+            border: 1px solid #9eff00;
+            color: #9eff00;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            margin-left: 5px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .lang-switcher .btn-lang:hover, 
+        .lang-switcher .btn-lang.active {
+            background: #9eff00;
+            color: #000;
+            box-shadow: 0 0 10px rgba(158, 255, 0, 0.5);
+        }
+        /* Biar rapi di Mobile */
+        @media (max-width: 991px) {
+            .lang-switcher-mobile {
+                position: absolute;
+                right: 60px; /* Geser dikit dari tombol hamburger */
+                top: 18px;
+            }
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
-    <div class="container">
-        <a class="navbar-brand text-neon fw-bold" href="#">ARUNARA</a>       
-        <button class="navbar-toggler border-0" type="button" id="manualToggler">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavManual">
-            <ul class="navbar-nav ms-auto text-center py-3 py-lg-0">
-                <li class="nav-item"><a class="nav-link text-white" href="#home">Home</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#services">Service</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#project">Project</a></li>
-                <li class="nav-item"><a class="nav-link text-white" href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-    <main>
-        <section id="home" class="vh-100 d-flex align-items-center position-relative overflow-hidden" style="background: #000;">
-    <canvas id="code-rain-canvas"></canvas>
-    <div class="container text-center text-white position-relative z-3">
-        <div class="hero-content">
-            <p class="hero-sub-text mb-2"> HI, I'M ARUNARA, A...</p>
-            <div class="door-container">
-                <h1 style="display: inline-block; position: relative;">
-                <span id="typed" class="main-text"></span>
-                </h1>   
-                </div>
-            </div>
-            <p class="hero-sub-text mb-2"> CRAFTING THE FUTURE OF WEB, ONE PIXEL AT A TIME</p>
-             <div class="mt-5">
-                <a href="#project" class="btn btn-primary btn-lg fw-bold px-5 me-md-3 mb-3 mb-md-0">my work</a>
-                <a href="#contact" class="btn btn-outline-light btn-lg fw-bold px-5">contact me</a>
-            </div>
-        </div>
-        </div>
-</section>
-    <section id="about" class="py-5 bg-black">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-5 mb-5 mb-md-0 text-center">
-                <div class="about-img-container">
-                    <img src="assets/img/profile.png" class="img-fluid rounded-3" alt="Anubhawa" style="max-width: 85%;">
-                </div>
+        <div class="container">
+            <a class="navbar-brand text-neon fw-bold" href="#">ARUNARA</a>        
+            
+            <div class="lang-switcher lang-switcher-mobile d-lg-none">
+                <button onclick="changeLang('id')" class="btn-lang" id="btn-id-mob">ID</button>
+                <button onclick="changeLang('en')" class="btn-lang" id="btn-en-mob">EN</button>
             </div>
 
-            <div class="col-md-7 ps-md-5">
-                <h6 class="text-primary">ABOUT <span class="text-white"> ME</span></h6>
-                <h2 class="display-4 fw-bold text-white mb-4">
-                    A Full Stack <span class="text-primary"> Developer </span> <br>
-                    based in <span class="text-neon"> Indonesia</span>
-                </h2>
-                
-                <p class="display-5 text-white mb-4" style="font-size: 1rem;">
-                    Hello! I'm Aditya Nugraha. A Full Stack Developer obsessed with clean code and seamless user experience. I specialize in building digital products that not only look good, but also perform at their best. My focus is on helping businesses transform through modern and future-proof technology solutions
-                </p>
-
-                <div class="row mb-5">
-                    <div class="col-6 list-item-neon mb-2">
-                        <i class="fa-solid fa-square-check me-2"></i> Laravel & PHP
-                    </div>
-                    <div class="col-6 list-item-neon mb-2">
-                        <i class="fa-solid fa-square-check me-2"></i> Bootstrap 5
-                    </div>
-                    <div class="col-6 list-item-neon mb-2">
-                        <i class="fa-solid fa-square-check me-2"></i> MySQL Database
-                    </div>
-                    <div class="col-6 list-item-neon mb-2">
-                        <i class="fa-solid fa-square-check me-2"></i> UI/UX Design
-                    </div>
-                </div>
-
-                <div class="button-group">
-                    <a href="#" class="btn btn-outline-light btn-lg fw-bold px-5">Hire Me</a>
-                    <a href="CV_ARUNARA.pdf" dowload="CV_ARUNARA.pdf" download="CV_ARUNARA.pdf" class="btn btn-primary btn-lg fw-bold px-5 me-md-3 mb-3 mb-md-0">Download CV</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="services" class="py-5 bg-black">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h6 class="text-primary fw-bold">OUR <span class="text-white fw-bold">SERVICES</span></h6>
-        </div>
-
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="service-card">
-                    <div class="icon-reactor">
-                        <i class="fa-solid fa-laptop-code"></i>
-                    </div>
-                    <h4 class="service-title">Web Development</h4>
-                    <p class="service-desc">Developing a website which is not only visually appealing, but also effective in generating business
-</p>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="service-card">
-                    <div class="icon-reactor">
-                        <i class="fa-solid fa-layer-group"></i>
-                    </div>
-                    <h4 class="service-title">Full-stack Development</h4>
-                    <p class="service-desc">End-to-End Solutions: From UI to Database</p>
-                </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="service-card">
-                    <div class="icon-reactor">
-                        <i class="fa-solid fa-code"></i>
-                    </div>
-                    <h4 class="service-title">Software Development</h4>
-                    <p class="service-desc">Turning ideas to powerful software solutions</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section id="project" class="py-5 bg-black">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h6 class="text-primary fw-bold">SELECTED <span class="text-white fw-bold">PROJECTS</span></h6>
-        </div>
-        <div class="row g-5">
-            <div class="col-md-6">
-                <div class="project-card-wrapper">
-                    <div class="project-header d-flex justify-content-between align-items-end mb-3">
-                        <h4 class="project-name text-white mb-0">
-                            <i class="fa-solid fa-arrow-down-right me-2 text-neon"></i>
-                            E-Commerce Laravel
-                        </h4>
-                        <span class="project-year">2023</span>
-                    </div>
-                    <div class="project-display">
-                        <img src=https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop" class="img-fluid" alt="Coming Soon">
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
-                <div class="project-card-wrapper">
-                    <div class="project-header d-flex justify-content-between align-items-end mb-3">
-                        <h4 class="project-name text-white mb-0">
-                            <i class="fa-solid fa-arrow-down-right me-2 text-neon"></i>
-                            Company Profile
-                        </h4>
-                        <span class="project-year">2024</span>
-                    </div>
-                    <div class="project-display">
-                        <img src=https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop" class="img-fluid" alt="Coming Soon">
-                        </div>                      
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-    <section id="contact" class="py-5">
-    <div class="container">
-        <div class="text-center mb-5">
-            <h6 class="fw-bold text-uppercase" style="color: #9eff00;">Contact Me</h6>
-            <h2 class="fw-bold text-white">Mari Mulai Kerjasama</h2>
-            <hr class="mx-auto" style="width: 50px; height: 4px; background-color: #9eff00; border: none; opacity: 1;">
-        </div>
-
-        <div class="row g-5">
-            <div class="col-md-5">
-                <div class="d-flex align-items-center mb-4">
-                    <div class="icon-box-small me-3 shadow-sm" style="background: rgba(158, 255, 0, 0.1); padding: 10px; border-radius: 10px;">
-                        <i class="fa-solid fa-envelope" style="color: #9eff00;"></i>
-                    </div>
-                    <div>
-                        <h6 class="mb-0 fw-bold text-white">Email</h6>
-                        <p class="text-white-50 mb-0">adtyanugraha654@gmail.com</p>
-                    </div>
-                </div>
-
-                <div class="d-flex align-items-center mb-4">
-                    <div class="icon-box-small me-3 shadow-sm" style="background: rgba(37, 211, 102, 0.1); padding: 10px; border-radius: 10px;">
-                        <i class="fa-brands fa-whatsapp" style="color: #25d366;"></i>
-                    </div>
-                    <div>
-                        <h6 class="mb-0 fw-bold text-white">WhatsApp</h6>
-                        <p class="text-white-50 mb-0">+62 882 9342 7818</p>
-                    </div>
-                </div>
-
-                <div class="d-flex align-items-center mb-4">
-                    <div class="icon-box-small me-3 shadow-sm" style="background: rgba(158, 255, 0, 0.1); padding: 10px; border-radius: 10px;">
-                        <i class="fa-solid fa-location-dot" style="color: #9eff00;"></i>
-                    </div>
-                    <div>
-                        <h6 class="mb-0 fw-bold text-white">Lokasi</h6>
-                        <p class="text-white-50 mb-0">Bogor, Indonesia</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-7">
-                <div class="card border-0 shadow-sm p-4" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(158, 255, 0, 0.1) !important;">
-                    <form action="https://api.web3forms.com/submit" method="POST" id="mainContactForm">
-                        <input type="hidden" name="access_key" value="0a05cbba-155e-4125-a77f-65eba14c1672">
-                        
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold small text-white">Nama Lengkap</label>
-                                <input type="text" id="contact_name" name="name" class="form-control bg-dark border-secondary text-white" placeholder="Masukkan nama..." required>
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label fw-bold small text-white">Alamat Email</label>
-                                <input type="email" name="email" class="form-control bg-dark border-secondary text-white" placeholder="nama@email.com" required>
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-bold small text-white">Subjek</label>
-                            <input type="text" name="subject" class="form-control bg-dark border-secondary text-white" placeholder="Judul pesan..." required>
-                        </div>
-                        <div class="mb-4">
-                            <label class="form-label fw-bold small text-white">Pesan Anda</label>
-                            <textarea id="contact_message" name="message" class="form-control bg-dark border-secondary text-white" rows="5" placeholder="Tulis pesan lengkap..." required></textarea>
-                        </div>
-
-                        <button type="submit" class="btn fw-bold w-100 py-3 mb-3" style="background: #9eff00; color: #000; box-shadow: 0 0 20px rgba(158, 255, 0, 0.3);">
-                            <i class="fa-solid fa-paper-plane me-2"></i>Kirim ke Email
-                        </button>
-
-                        <button type="button" onclick="sendToWhatsApp()" class="btn fw-bold w-100 py-3" style="background: transparent; border: 2px solid #25d366; color: #25d366;">
-                            <i class="fa-brands fa-whatsapp me-2"></i>Kirim via WhatsApp
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-    </main>
-    <section class="bg-dark text-white pt-5 pb-3">
-    <div class="container">
-        <div class="row g-4">
-            <div class="col-md-4">
-                <h4 class="fw-bold mb-3"><span class="text-primary">MY</span>PORTFOLIO</h4>
-                <p class="text-secondary">Membangun solusi digital yang fungsional dan estetik dengan sentuhan teknologi terbaru.</p>
-                <div class="mt-4">
-                    <a href="#" class="text-white me-3"><i class="fa-brands fa-github fa-lg"></i></a>
-                    <a href="#" class="text-white me-3"><i class="fa-brands fa-linkedin fa-lg"></i></a>
-                    <a href="https://www.instagram.com/sepsigmay/" class="text-white"><i class="fa-brands fa-instagram fa-lg"></i></a>
-                </div>
-            </div>
-
-            <div class="col-md-4 ps-md-5">
-                <h5 class="fw-bold mb-3">Navigasi</h5>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a href="#home" class="text-secondary text-decoration-none hover-white">Home</a></li>
-                    <li class="mb-2"><a href="#about" class="text-secondary text-decoration-none hover-white">About Me</a></li>
-                    <li class="mb-2"><a href="#service" class="text-secondary text-decoration-none hover-white">Services</a></li>
-                    <li class="mb-2"><a href="#portfolio" class="text-secondary text-decoration-none hover-white">Portfolio</a></li>
+            <button class="navbar-toggler border-0" type="button" id="manualToggler">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNavManual">
+                <ul class="navbar-nav ms-auto text-center py-3 py-lg-0">
+                    <li class="nav-item"><a class="nav-link text-white" href="#home" data-lang="nav_home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#about" data-lang="nav_about">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#services" data-lang="nav_service">Service</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#project" data-lang="nav_project">Project</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#contact" data-lang="nav_contact">Contact</a></li>
+                    
+                    <li class="nav-item d-none d-lg-flex align-items-center ms-lg-3 lang-switcher">
+                        <button onclick="changeLang('id')" class="btn-lang" id="btn-id">ID</button>
+                        <button onclick="changeLang('en')" class="btn-lang" id="btn-en">EN</button>
+                    </li>
                 </ul>
             </div>
+        </div>
+    </nav>
 
-            <div class="col-md-4">
-                <h5 class="fw-bold mb-3">Stay Connected</h5>
-                <p class="text-secondary small">Tertarik untuk diskusi project? Langsung aja kirim email atau DM lewat sosmed.</p>
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control bg-secondary border-0 text-white shadow-none" placeholder="Email kamu..." style="--bs-bg-opacity: .2;">
-                    <button class="btn btn-primary" type="button">Sub</button>
+    <main>
+        <section id="home" class="vh-100 d-flex align-items-center position-relative overflow-hidden" style="background: #000;">
+            <canvas id="code-rain-canvas"></canvas>
+            <div class="container text-center text-white position-relative z-3">
+                <div class="hero-content">
+                    <p class="hero-sub-text mb-2" data-lang="hero_intro"> HI, I'M ARUNARA, A...</p>
+                    <div class="door-container">
+                        <h1 style="display: inline-block; position: relative;">
+                            <span id="typed" class="main-text"></span>
+                        </h1>   
+                    </div>
+                </div>
+                <p class="hero-sub-text mb-2" data-lang="hero_tagline"> CRAFTING THE FUTURE OF WEB, ONE PIXEL AT A TIME</p>
+                <div class="mt-5">
+                    <a href="#project" class="btn btn-primary btn-lg fw-bold px-5 me-md-3 mb-3 mb-md-0" data-lang="btn_work">my work</a>
+                    <a href="#contact" class="btn btn-outline-light btn-lg fw-bold px-5" data-lang="btn_contact">contact me</a>
                 </div>
             </div>
-        </div>
+        </section>
 
-        <hr class="mt-5 mb-4" style="border-color: rgba(255,255,255,0.1);">
-        
-        <div class="text-center">
-            <p class="text-secondary small mb-0">&copy; 2026 My Portofolio Built with <i class="fa-solid fa-heart text-danger"></i></p>     
+        <section id="about" class="py-5 bg-black">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-5 mb-5 mb-md-0 text-center">
+                        <div class="about-img-container">
+                            <img src="assets/img/profile.png" class="img-fluid rounded-3" alt="Anubhawa" style="max-width: 85%;">
+                        </div>
+                    </div>
+
+                    <div class="col-md-7 ps-md-5">
+                        <h6 class="text-primary" data-lang="about_label">ABOUT <span class="text-white"> ME</span></h6>
+                        <h2 class="display-4 fw-bold text-white mb-4" data-lang="about_title">
+                            A Full Stack <span class="text-primary"> Developer </span> <br>
+                            based in <span class="text-neon"> Indonesia</span>
+                        </h2>
+                        
+                        <p class="display-5 text-white mb-4" style="font-size: 1rem;" data-lang="about_desc">
+                            Hello! I'm Aditya Nugraha. A Full Stack Developer obsessed with clean code and seamless user experience. I specialize in building digital products that not only look good, but also perform at their best. My focus is on helping businesses transform through modern and future-proof technology solutions
+                        </p>
+
+                        <div class="row mb-5">
+                            <div class="col-6 list-item-neon mb-2">
+                                <i class="fa-solid fa-square-check me-2"></i> Laravel & PHP
+                            </div>
+                            <div class="col-6 list-item-neon mb-2">
+                                <i class="fa-solid fa-square-check me-2"></i> Bootstrap 5
+                            </div>
+                            <div class="col-6 list-item-neon mb-2">
+                                <i class="fa-solid fa-square-check me-2"></i> MySQL Database
+                            </div>
+                            <div class="col-6 list-item-neon mb-2">
+                                <i class="fa-solid fa-square-check me-2"></i> UI/UX Design
+                            </div>
+                        </div>
+
+                        <div class="button-group">
+                            <a href="#" class="btn btn-outline-light btn-lg fw-bold px-5" data-lang="btn_hire">Hire Me</a>
+                            <a href="CV_ARUNARA.pdf" download="CV_ARUNARA.pdf" class="btn btn-primary btn-lg fw-bold px-5 me-md-3 mb-3 mb-md-0" data-lang="btn_cv">Download CV</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="services" class="py-5 bg-black">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h6 class="text-primary fw-bold" data-lang="service_head">OUR <span class="text-white fw-bold">SERVICES</span></h6>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="service-card">
+                            <div class="icon-reactor">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <h4 class="service-title" data-lang="srv_1_title">Web Development</h4>
+                            <p class="service-desc" data-lang="srv_1_desc">Developing a website which is not only visually appealing, but also effective in generating business</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="service-card">
+                            <div class="icon-reactor">
+                                <i class="fa-solid fa-layer-group"></i>
+                            </div>
+                            <h4 class="service-title" data-lang="srv_2_title">Full-stack Development</h4>
+                            <p class="service-desc" data-lang="srv_2_desc">End-to-End Solutions: From UI to Database</p>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="service-card">
+                            <div class="icon-reactor">
+                                <i class="fa-solid fa-code"></i>
+                            </div>
+                            <h4 class="service-title" data-lang="srv_3_title">Software Development</h4>
+                            <p class="service-desc" data-lang="srv_3_desc">Turning ideas to powerful software solutions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="project" class="py-5 bg-black">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h6 class="text-primary fw-bold" data-lang="proj_head">SELECTED <span class="text-white fw-bold">PROJECTS</span></h6>
+                </div>
+                <div class="row g-5">
+                    <div class="col-md-6">
+                        <div class="project-card-wrapper">
+                            <div class="project-header d-flex justify-content-between align-items-end mb-3">
+                                <h4 class="project-name text-white mb-0">
+                                    <i class="fa-solid fa-arrow-down-right me-2 text-neon"></i>
+                                    E-Commerce Laravel
+                                </h4>
+                                <span class="project-year">2023</span>
+                            </div>
+                            <div class="project-display">
+                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop" class="img-fluid" alt="Project 1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="project-card-wrapper">
+                            <div class="project-header d-flex justify-content-between align-items-end mb-3">
+                                <h4 class="project-name text-white mb-0">
+                                    <i class="fa-solid fa-arrow-down-right me-2 text-neon"></i>
+                                    Company Profile
+                                </h4>
+                                <span class="project-year">2024</span>
+                            </div>
+                            <div class="project-display">
+                                <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop" class="img-fluid" alt="Project 2">
+                            </div>                     
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h6 class="fw-bold text-uppercase" style="color: #9eff00;" data-lang="contact_small">Contact Me</h6>
+                    <h2 class="fw-bold text-white" data-lang="contact_big">Mari Mulai Kerjasama</h2>
+                    <hr class="mx-auto" style="width: 50px; height: 4px; background-color: #9eff00; border: none; opacity: 1;">
+                </div>
+
+                <div class="row g-5">
+                    <div class="col-md-5">
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-box-small me-3 shadow-sm" style="background: rgba(158, 255, 0, 0.1); padding: 10px; border-radius: 10px;">
+                                <i class="fa-solid fa-envelope" style="color: #9eff00;"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-bold text-white">Email</h6>
+                                <p class="text-white-50 mb-0">adtyanugraha654@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-box-small me-3 shadow-sm" style="background: rgba(37, 211, 102, 0.1); padding: 10px; border-radius: 10px;">
+                                <i class="fa-brands fa-whatsapp" style="color: #25d366;"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-bold text-white">WhatsApp</h6>
+                                <p class="text-white-50 mb-0">+62 882 9342 7818</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-center mb-4">
+                            <div class="icon-box-small me-3 shadow-sm" style="background: rgba(158, 255, 0, 0.1); padding: 10px; border-radius: 10px;">
+                                <i class="fa-solid fa-location-dot" style="color: #9eff00;"></i>
+                            </div>
+                            <div>
+                                <h6 class="mb-0 fw-bold text-white" data-lang="loc_label">Lokasi</h6>
+                                <p class="text-white-50 mb-0">Bogor, Indonesia</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-7">
+                        <div class="card border-0 shadow-sm p-4" style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(158, 255, 0, 0.1) !important;">
+                            <form action="https://api.web3forms.com/submit" method="POST" id="mainContactForm">
+                                <input type="hidden" name="access_key" value="0a05cbba-155e-4125-a77f-65eba14c1672">
+                                
+                                <div class="row">
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label fw-bold small text-white" data-lang="lbl_name">Nama Lengkap</label>
+                                        <input type="text" id="contact_name" name="name" class="form-control bg-dark border-secondary text-white" placeholder="Masukkan nama..." data-lang="ph_name" required>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                        <label class="form-label fw-bold small text-white" data-lang="lbl_email">Alamat Email</label>
+                                        <input type="email" name="email" class="form-control bg-dark border-secondary text-white" placeholder="nama@email.com" data-lang="ph_email" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label fw-bold small text-white" data-lang="lbl_subject">Subjek</label>
+                                    <input type="text" name="subject" class="form-control bg-dark border-secondary text-white" placeholder="Judul pesan..." data-lang="ph_subject" required>
+                                </div>
+                                <div class="mb-4">
+                                    <label class="form-label fw-bold small text-white" data-lang="lbl_msg">Pesan Anda</label>
+                                    <textarea id="contact_message" name="message" class="form-control bg-dark border-secondary text-white" rows="5" placeholder="Tulis pesan lengkap..." data-lang="ph_msg" required></textarea>
+                                </div>
+
+                                <button type="submit" class="btn fw-bold w-100 py-3 mb-3" style="background: #9eff00; color: #000; box-shadow: 0 0 20px rgba(158, 255, 0, 0.3);">
+                                    <i class="fa-solid fa-paper-plane me-2"></i><span data-lang="btn_send">Kirim ke Email</span>
+                                </button>
+
+                                <button type="button" onclick="sendToWhatsApp()" class="btn fw-bold w-100 py-3" style="background: transparent; border: 2px solid #25d366; color: #25d366;">
+                                    <i class="fa-brands fa-whatsapp me-2"></i><span data-lang="btn_wa">Kirim via WhatsApp</span>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <section class="bg-dark text-white pt-5 pb-3">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h4 class="fw-bold mb-3"><span class="text-primary">MY</span>PORTFOLIO</h4>
+                    <p class="text-secondary" data-lang="footer_desc">Membangun solusi digital yang fungsional dan estetik dengan sentuhan teknologi terbaru.</p>
+                    <div class="mt-4">
+                        <a href="#" class="text-white me-3"><i class="fa-brands fa-github fa-lg"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fa-brands fa-linkedin fa-lg"></i></a>
+                        <a href="https://www.instagram.com/sepsigmay/" class="text-white"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-md-4 ps-md-5">
+                    <h5 class="fw-bold mb-3" data-lang="foot_nav">Navigasi</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#home" class="text-secondary text-decoration-none hover-white" data-lang="nav_home">Home</a></li>
+                        <li class="mb-2"><a href="#about" class="text-secondary text-decoration-none hover-white" data-lang="nav_about">About Me</a></li>
+                        <li class="mb-2"><a href="#service" class="text-secondary text-decoration-none hover-white" data-lang="nav_service">Services</a></li>
+                        <li class="mb-2"><a href="#portfolio" class="text-secondary text-decoration-none hover-white" data-lang="nav_project">Portfolio</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-4">
+                    <h5 class="fw-bold mb-3" data-lang="foot_connect">Stay Connected</h5>
+                    <p class="text-secondary small" data-lang="foot_connect_desc">Tertarik untuk diskusi project? Langsung aja kirim email atau DM lewat sosmed.</p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control bg-secondary border-0 text-white shadow-none" placeholder="Email..." style="--bs-bg-opacity: .2;">
+                        <button class="btn btn-primary" type="button">Sub</button>
+                    </div>
+                </div>
+            </div>
+
+            <hr class="mt-5 mb-4" style="border-color: rgba(255,255,255,0.1);">
+            
+            <div class="text-center">
+                <p class="text-secondary small mb-0" data-lang="copyright">&copy; 2026 My Portofolio Built with <i class="fa-solid fa-heart text-danger"></i></p>      
+            </div>
         </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-        <script src="scripts.js"></script>
+    </section>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script src="scripts.js"></script>
 </body>
-</footer>
-
 </html>
-
-
-
