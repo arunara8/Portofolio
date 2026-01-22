@@ -555,7 +555,62 @@ footer i:hover {
     section { padding: 50px 0 !important; }
 
 }
+/* Container Utama untuk Fade Effect */
+.tech-stack-slider {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    /* Efek transparan di kiri dan kanan */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+}
 
+.tech-track-left, .tech-track-right {
+    display: flex;
+    width: max-content;
+    padding: 10px 0;
+}
+
+/* Animasi Baris 1 (Ke Kiri) */
+.tech-track-left {
+    animation: scrollLeft 30s linear infinite;
+}
+
+/* Animasi Baris 2 (Ke Kanan) */
+.tech-track-right {
+    animation: scrollRight 30s linear infinite;
+}
+
+/* Styling Item */
+.tech-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 40px;
+    color: #9eff00;
+    font-weight: 600;
+}
+
+.tech-item i {
+    font-size: 2rem;
+}
+
+/* Logic Animasi */
+@keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes scrollRight {
+    0% { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
+
+/* Pause pas hover biar user bisa liat jelas */
+.tech-stack-slider:hover .tech-track-left,
+.tech-stack-slider:hover .tech-track-right {
+    animation-play-state: paused;
+}
 
 
 
