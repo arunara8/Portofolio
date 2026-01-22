@@ -555,63 +555,73 @@ footer i:hover {
     section { padding: 50px 0 !important; }
 
 }
-/* Container Utama untuk Fade Effect */
+/* Container Slider */
 .tech-stack-slider {
     width: 100%;
     overflow: hidden;
+    padding: 20px 0;
     position: relative;
-    /* Efek transparan di kiri dan kanan */
-    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
-    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    /* Efek Fade In & Fade Out di Pinggir */
+    mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 15%,
+        black 85%,
+        transparent
+    );
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent,
+        black 15%,
+        black 85%,
+        transparent
+    );
 }
 
-.tech-track-left, .tech-track-right {
+/* Jalur Icon (Flexbox) */
+.tech-track {
     display: flex;
     width: max-content;
-    padding: 10px 0;
+    animation: scrollTech 25s linear infinite; /* Kecepatan bisa diatur */
 }
 
-/* Animasi Baris 1 (Ke Kiri) */
-.tech-track-left {
-    animation: scrollLeft 30s linear infinite;
-}
-
-/* Animasi Baris 2 (Ke Kanan) */
-.tech-track-right {
-    animation: scrollRight 30s linear infinite;
-}
-
-/* Styling Item */
+/* Styling Tiap Item/Icon */
 .tech-item {
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 0 40px;
-    color: #9eff00;
+    gap: 12px;
+    padding: 0 30px;
+    color: #9eff00; /* Warna neon lu */
     font-weight: 600;
+    font-size: 1.1rem;
+    white-space: nowrap;
 }
 
 .tech-item i {
-    font-size: 2rem;
+    font-size: 1.8rem;
+    transition: transform 0.3s ease;
 }
 
-/* Logic Animasi */
-@keyframes scrollLeft {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+/* Hover Effect biar interaktif */
+.tech-item:hover i {
+    transform: scale(1.2);
+    color: #fff;
 }
 
-@keyframes scrollRight {
-    0% { transform: translateX(-50%); }
-    100% { transform: translateX(0); }
+/* Animasi Jalan Ke Samping */
+@keyframes scrollTech {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%); /* Geser setengah lebar total track */
+    }
 }
 
-/* Pause pas hover biar user bisa liat jelas */
-.tech-stack-slider:hover .tech-track-left,
-.tech-stack-slider:hover .tech-track-right {
+/* Berhenti pas di-hover biar user bisa baca */
+.tech-stack-slider:hover .tech-track {
     animation-play-state: paused;
 }
-
 
 
 
