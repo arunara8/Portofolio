@@ -1,11 +1,11 @@
-  window.onscroll = function() {
+    window.onscroll = function() {
         var nav = document.querySelector('.navbar');
         if (window.pageYOffset > 50) { // Jika di-scroll lebih dari 50px
             nav.classList.add('scrolled');
         } else {
             nav.classList.remove('scrolled');
         }
-}
+} 
 
   var typed = new Typed('#typed', {
     strings: ['web designer', 'front-end developer', 'full stack engineer'],
@@ -13,7 +13,7 @@
     backSpeed: 30,    // Kecepatan hapus
     backDelay: 2000,  // Jeda sebelum hapus (2 detik)
     loop: true,       // Biar muter terus
-    cursorChar: '|',  // Bentuk kursornya
+    cursorChar: '',  // Bentuk kursornya
   });
 
     // --- SCRIPT CODE RAIN BACKGROUND ---
@@ -125,7 +125,8 @@ document.addEventListener('DOMContentLoaded', function() {
         scrollObserver.observe(el);
     });
 });
-        function sendToWhatsApp() {
+
+function sendToWhatsApp() {
     const name = document.getElementById('contact_name').value;
     const message = document.getElementById('contact_message').value;
     const phone = "6288293427818"; // Nomor lu udah bener
@@ -141,6 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Buka tab baru ke WA
     window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
 }
+
 /* --- SISTEM MULTI-BAHASA (INDONESIA / ENGLISH) --- */
 const translations = {
     'id': {
@@ -302,6 +304,3 @@ document.addEventListener('DOMContentLoaded', () => {
     const savedLang = localStorage.getItem('preferredLang') || 'en';
     changeLang(savedLang);
 });
-
-
-
