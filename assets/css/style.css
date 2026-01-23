@@ -359,12 +359,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .film-item {
-    padding: 0 20px;
+    padding: 0 10px;
 }
 
 .film-frame {
-    width: 450px;
-    height: 280px;
+    width: 350px;
+    height: 220px;
     background: #111;
     filter: grayscale(100%) brightness(0.3);
     transition: all 0.5s ease;
@@ -381,9 +381,9 @@ h1, h2, h3, h4, h5, h6 {
 /* Hover: Warna Muncul & Zoom */
 .film-frame:hover {
     filter: grayscale(0%) brightness(1);
-    transform: scale(1.08);
+    transform: scale(1.05);
     border-color: #9eff00;
-    box-shadow: 0 0 30px rgba(158, 255, 0, 0.3);
+    box-shadow: 0 0 20px rgba(158, 255, 0, 0.3);
 }
 
 /* KEYFRAMES SEAMLESS LOOP */
