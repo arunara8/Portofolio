@@ -280,5 +280,31 @@ function changeLang(lang) {
     if(btnId) btnId.classList.toggle('active', lang === 'id');
     if(btnEn) btnEn.classList.toggle('active', lang === 'en');
 }
+const scrollContainer = document.querySelector('.film-strip-container');
+
+// 1. Fungsi Scroll Manual pake Mouse Wheel
+scrollContainer.addEventListener('wheel', (evt) => {
+    evt.preventDefault();
+    scrollContainer.scrollLeft += evt.deltaY;
+    checkInfiniteScroll();
+});
+
+// 2. Fungsi Logika Infinite
+function checkInfiniteScroll() {
+    const currentScroll = scrollContainer.scrollLeft;
+    const maxScroll = scrollContainer.scrollWidth - scrollContainer.clientWidth;
+
+    // Jika scroll nyentuh ujung kanan (mentok)
+    if (currentScroll >= maxScroll - 1) {
+        scrollContainer.scrollLeft = 1; // Balikin ke hampir awal
+    } 
+    // Jika scroll nyentuh ujung kiri (mentok)
+    else if (currentScroll <= 0) {
+        scrollContainer.scrollLeft = maxScroll - 1; // Lempar ke ujung kanan
+    }
+}
+
+// 3. Tambahkan listener untuk scroll event (buat swipe HP juga)
+scrollContainer.addEventListener('scroll', checkInfiniteScroll);
 
 
