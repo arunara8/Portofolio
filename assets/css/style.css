@@ -323,9 +323,8 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 12px;
     font-size: 1.2rem;
 }
-/* Container Utama - Full Width Layar */
 .film-strip-container {
-    width: 100vw; /* Paksa lebar full layar */
+    width: 100vw;
     position: relative;
     left: 50%;
     right: 50%;
@@ -333,59 +332,61 @@ h1, h2, h3, h4, h5, h6 {
     margin-right: -50vw;
     padding: 60px 0;
     background: #050505;
-    overflow-x: auto; /* Biar bisa scroll horizontal bawaan */
+    overflow-x: auto;
     overflow-y: hidden;
+    white-space: nowrap;
     cursor: grab;
     -webkit-overflow-scrolling: touch;
-    scroll-behavior: auto; /* Penting buat teleportasi infinite JS */
+    scroll-behavior: auto; /* Wajib auto untuk JS */
 }
 
-/* Sembunyiin Scrollbar */
+/* Sembunyiin Scrollbar di semua browser */
 .film-strip-container::-webkit-scrollbar { display: none; }
 
-/* Lubang Klise Film - Sekarang Full Width */
+/* LUBANG KLISE FILM - Solusi Full Width */
 .film-strip-container::before, 
 .film-strip-container::after {
     content: "";
     position: absolute;
     left: 0;
-    width: 100%; /* Menjamin lubang full dari ujung ke ujung */
+    width: 100vw; /* Pastikan lebar viewport penuh */
     height: 20px;
+    /* Pola lingkaran untuk lubang klise */
     background-image: radial-gradient(circle, #222 45%, transparent 50%);
-    background-size: 40px 20px; /* Ukuran lubang klise */
-    background-repeat: repeat-x; /* Ulang ke samping terus */
+    background-size: 40px 20px;
+    background-repeat: repeat-x;
     z-index: 10;
 }
+
 .film-strip-container::before { top: 15px; }
 .film-strip-container::after { bottom: 15px; }
 
-/* Jalur Item */
+/* Track Item */
 .film-track {
     display: flex;
     width: max-content;
-    animation: filmAutoScroll 40s linear infinite;
 }
 
-/* Biar animasi berlanjut mulus pas di-hover */
-.film-strip-container:hover .film-track {
-    animation-play-state: paused;
-}
+/* Frame Project */
+.film-item { padding: 0 15px; }
 
-/* Styling Frame */
 .film-frame {
     width: 450px; 
     height: 280px;
-    margin: 0 15px;
     background: #111;
-    filter: grayscale(100%) brightness(0.3);
-    transition: 0.5s ease;
+    overflow: hidden;
+    border-radius: 4px;
+    filter: grayscale(100%) brightness(0.3) sepia(20%);
+    transition: all 0.5s ease;
     border: 1px solid #333;
 }
 
+/* Hover Effect */
 .film-frame:hover {
-    filter: grayscale(0%) brightness(1);
+    filter: grayscale(0%) brightness(1) sepia(0%);
     transform: scale(1.05);
     border-color: #9eff00;
+    box-shadow: 0 0 20px rgba(158, 255, 0, 0.4);
 }
 /* Styling Dasar Input & Textarea */
     .contact-form .form-control {
