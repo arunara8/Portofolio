@@ -312,7 +312,6 @@ h1, h2, h3, h4, h5, h6 {
     }
     }
     
- 
 } 
 .icon-box-small {
     width: 50px;
@@ -330,7 +329,6 @@ film-strip-container {
     padding: 40px 0;
     background: #050505;
     position: relative;
-    /* Izinkan scroll tapi sembunyiin bar-nya */
     overflow-x: auto;
     scroll-behavior: smooth;
     -ms-overflow-style: none;  /* IE and Edge */
@@ -346,7 +344,6 @@ film-strip-container {
 .film-track {
     display: flex;
     width: max-content;
-    /* Animasi jalan otomatis */
     animation: filmScroll 40s linear infinite;
 }
 /* Item Project */
