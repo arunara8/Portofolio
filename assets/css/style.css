@@ -468,9 +468,6 @@ footer i:hover {
     transition: 0.3s;
 }
 /* Cari tag <i> di dalam About dan paksa jadi ijo */
-#about i, .fa-check, .fa-square-check {
-    filter: drop-shadow(0 0 5px #9eff00);
-}
     @media (max-width: 991px) {
         /* Maksa menu muncul kalo ada class 'active' */
         #navbarNavManual.active {
