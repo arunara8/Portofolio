@@ -281,23 +281,45 @@ function changeLang(lang) {
     if(btnEn) btnEn.classList.toggle('active', lang === 'en');
 }
 const filmContainer = document.querySelector('.film-strip-container');
+let isHovered = false;
+let scrollSpeed = 1.5; // Sesuaikan kecepatan auto-scroll
 
-// Logika Infinite: Pindah posisi pas nyentuh "ujung" virtual
+function autoScroll() {
+    if (!isHovered) {
+        filmContainer.scrollLeft += scrollSpeed;
+        
+        // Logika Infinite Loop
+        const scrollLeft = filmContainer.scrollLeft;
+        const maxScroll = filmContainer.scrollWidth - filmContainer.clientWidth;
+
+        // Jika hampir menyentuh ujung kanan (Group 3)
+        if (scrollLeft >= maxScroll - 5) {
+            // Teleportasi ke area Group 2 (tengah) agar tetap bisa scroll kiri/kanan
+            filmContainer.scrollLeft = filmContainer.scrollWidth / 3;
+        }
+    }
+    requestAnimationFrame(autoScroll);
+}
+
+// Deteksi interaksi user
+filmContainer.addEventListener('mouseenter', () => isHovered = true);
+filmContainer.addEventListener('mouseleave', () => isHovered = false);
+
+// Biar swipe di HP juga tetap infinite
 filmContainer.addEventListener('scroll', () => {
     const scrollLeft = filmContainer.scrollLeft;
     const maxScroll = filmContainer.scrollWidth - filmContainer.clientWidth;
 
-    // Jika user scroll sampe mau abis ke kanan
-    if (scrollLeft >= maxScroll - 5) {
+    if (scrollLeft >= maxScroll - 2) {
         filmContainer.scrollLeft = filmContainer.scrollWidth / 3;
-    } 
-    // Jika user scroll sampe mau abis ke kiri
-    else if (scrollLeft <= 5) {
+    } else if (scrollLeft <= 2) {
         filmContainer.scrollLeft = filmContainer.scrollWidth / 3;
     }
 });
 
-// Setup awal di tengah biar bisa scroll ke dua arah
+// Jalankan setelah semua gambar terload
 window.addEventListener('load', () => {
+    // Start di posisi 1/3 lebar agar user bisa scroll ke kiri langsung
     filmContainer.scrollLeft = filmContainer.scrollWidth / 3;
+    autoScroll();
 });
