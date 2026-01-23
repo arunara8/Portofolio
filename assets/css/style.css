@@ -312,107 +312,6 @@ h1, h2, h3, h4, h5, h6 {
     }
     }
     
-    /* Styling Dasar Project */
-    .project-card-wrapper {
-        transition: transform 0.5s ease;
-        cursor: pointer;
-    }
-
-    .project-name {
-        font-family: 'Consolas', monospace;
-        font-size: 1.4rem;
-        text-transform: uppercase;
-    }
-
-    .project-year {
-        color: #666;
-        font-family: 'Courier New', monospace;
-        font-weight: bold;
-    }
-
-    .project-display img {
-        transition: 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        filter: grayscale(40%); /* Agak redup dikit pas normal */
-    }
-    .project-header {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        padding-bottom: 15px;
-    }
-    .project-display {
-        position: relative;
-        background: #000;
-        overflow: hidden;
-        border: 1px solid rgba(158, 255, 0, 0.1);
-        border-radius: 20px;
-    }
-    /* Efek lapisan warna di atas foto */
-    .project-display::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(45deg, rgba(158, 255, 0, 0.2), transparent);
-        opacity: 0.5;
-        transition: 0.5s;
-    }
-    .project-display img {
-        width: 100%;
-        height: 300px; /* Atur tinggi seragam biar rapi */
-        object-fit: cover; /* Biar foto gak penyet */
-        filter: grayscale(80%) brightness(0.7);
-        transition: 0.5s;
-    }
-
-    /*---1 KHUSUS PC */
-
-    @media (min-width: 992px) {
-    .project-card-wrapper {
-        opacity: 1 !important;
-    }
-
-    .project-card-wrapper:hover {
-        transform: translateY(-5px);
-    }
-    .project-card-wrapper:hover .project-display {
-        border-color: #9eff00;
-        box-shadow: 0 0 30px rgba(158, 255, 0, 0.2);
-    }
-    .project-card-wrapper:hover .project-display img {
-        transform: scale(1.05);
-        filter: grayscale(0%);
-    }
-    .project-card-wrapper:hover .project-header {
-        border-color: rgba(158, 255, 0, 0.5);
-    }
-    .project-card-wrapper:hover .project-display::after {
-        opacity: 0.1;
-    }
-
-}
-    @media (max-width: 991px) {
-    .project-card-wrapper {
-        opacity: 0;
-    }
-    .project-card-wrapper.is-active {
-        opacity: 1;
-        transform: translateY(-5px);
-    } 
-    .project-card-wrapper.is-active .project-display {
-        border-color: #9eff00;
-        box-shadow: 0 0 30px rgba(158, 255, 0, 0.2);
-    }
-    .project-card-wrapper.is-active .project-display img {
-        transform: scale(1.05);
-        filter: grayscale(0%);
-    }
-    .project-card-wrapper.is-active .project-header {
-        border-color: rgba(158, 255, 0, 0.5);
-    }
-    .project-card-wrapper:hover.is-active .project-display::after {
-        opacity: 0.1;
-    }
  
 } 
 .icon-box-small {
@@ -425,16 +324,47 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 12px;
     font-size: 1.2rem;
 }
-/* Container Utama */
 .film-strip-container {
     width: 100%;
     padding: 40px 0;
     background: #050505;
     position: relative;
-    border-top: 5px dashed rgba(255,255,255,0.1); /* Efek garis film atas */
-    border-bottom: 5px dashed rgba(255,255,255,0.1); /* Efek garis film bawah */
+    /* Izinkan scroll tapi sembunyiin bar-nya */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 
+/* Sembunyiin scrollbar buat Chrome, Safari dan Opera */
+.film-strip-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* Jalur Animasi */
+.film-track {
+    display: flex;
+    width: max-content;
+    /* Animasi jalan otomatis */
+    animation: filmScroll 40s linear infinite;
+}
+
+/* --- LOGIC INTERAKSI --- */
+
+/* Pas di-HOVER (PC): Animasi mati, user bisa scroll manual */
+.film-strip-container:hover .film-track {
+    animation-play-state: paused;
+}
+
+/* Mode HP: Matikan animasi biar user bebas swipe */
+@media (max-width: 768px) {
+    .film-track {
+        animation: none; /* Animasi mati di HP biar gak adu mekanik sama jempol */
+    }
+    .film-item {
+        padding: 0 10px;
+    }
+}
 /* Jalur Animasi */
 .film-track {
     display: flex;
@@ -480,11 +410,6 @@ h1, h2, h3, h4, h5, h6 {
 
 .film-overlay h5 { color: #9eff00; font-weight: bold; margin: 0; }
 .film-overlay p { color: #fff; font-size: 0.8rem; margin: 5px 0 0; }
-
-/* HOVER EFFECT */
-.film-strip-container:hover .film-track {
-    animation-play-state: paused; /* Berhenti pas di-hover */
-}
 
 .film-frame:hover {
     filter: grayscale(0%) brightness(1); /* Jadi berwarna & terang */
