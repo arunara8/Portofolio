@@ -282,28 +282,22 @@ function changeLang(lang) {
 }
 const filmContainer = document.querySelector('.film-strip-container');
 
-// 1. Scroll pake Mouse Wheel (Horizontal)
-filmContainer.addEventListener('wheel', (e) => {
-    e.preventDefault();
-    filmContainer.scrollLeft += e.deltaY;
-});
-
-// 2. Logika Infinite Loop
+// Logika Infinite: Pindah posisi pas nyentuh "ujung" virtual
 filmContainer.addEventListener('scroll', () => {
     const scrollLeft = filmContainer.scrollLeft;
     const maxScroll = filmContainer.scrollWidth - filmContainer.clientWidth;
 
-    // Kalau mau mentok kanan, lempar ke tengah
+    // Jika user scroll sampe mau abis ke kanan
     if (scrollLeft >= maxScroll - 5) {
         filmContainer.scrollLeft = filmContainer.scrollWidth / 3;
     } 
-    // Kalau mau mentok kiri, lempar ke tengah
+    // Jika user scroll sampe mau abis ke kiri
     else if (scrollLeft <= 5) {
         filmContainer.scrollLeft = filmContainer.scrollWidth / 3;
     }
 });
 
-// 3. Setup awal: taruh posisi scroll di tengah biar bisa ke kiri/kanan
+// Setup awal di tengah biar bisa scroll ke dua arah
 window.addEventListener('load', () => {
     filmContainer.scrollLeft = filmContainer.scrollWidth / 3;
 });
