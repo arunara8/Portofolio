@@ -335,6 +335,9 @@ h1, h2, h3, h4, h5, h6 {
     scroll-behavior: smooth;
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    background-image: radial-gradient(circle, #222 40%, transparent 45%);
+    background-size: 30px 15px;
+    z-index: 5;
 }
 .film-strip-container::-webkit-scrollbar {
     display: none;
