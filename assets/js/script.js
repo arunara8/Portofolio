@@ -280,11 +280,3 @@ function changeLang(lang) {
     if(btnId) btnId.classList.toggle('active', lang === 'id');
     if(btnEn) btnEn.classList.toggle('active', lang === 'en');
 }
-const scrollContainer = document.querySelector('.film-strip-container');
-
-scrollContainer.addEventListener('wheel', (evt) => {
-    // Cek kalau lagi mode hover (animasi dipause)
-    // Ini biar user bisa scroll manual pake mouse wheel kiri-kanan
-    evt.preventDefault();
-    scrollContainer.scrollLeft += evt.deltaY;
-});
