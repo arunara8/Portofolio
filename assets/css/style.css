@@ -323,72 +323,86 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 12px;
     font-size: 1.2rem;
 }
-.film-strip-container {
-    width: 100vw;
+.project-film-section {
+    background: #000;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+.film-slider-wrapper {
     position: relative;
-    left: 50%;
-    right: 50%;
-    margin-left: -50vw;
-    margin-right: -50vw;
-    padding: 60px 0;
-    background: #050505;
-    overflow-x: auto;
-    overflow-y: hidden;
-    white-space: nowrap;
-    cursor: grab;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: auto; /* Wajib auto untuk JS */
+    width: 100%;
+    /* Efek Fade di Ujung Kiri & Kanan */
+    mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);
 }
 
-/* Sembunyiin Scrollbar di semua browser */
-.film-strip-container::-webkit-scrollbar { display: none; }
-
-/* LUBANG KLISE FILM - Solusi Full Width */
-.film-strip-container::before, 
-.film-strip-container::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100vw; /* Pastikan lebar viewport penuh */
-    height: 20px;
-    /* Pola lingkaran untuk lubang klise */
-    background-image: radial-gradient(circle, #222 45%, transparent 50%);
-    background-size: 40px 20px;
-    background-repeat: repeat-x;
-    z-index: 10;
-}
-
-.film-strip-container::before { top: 15px; }
-.film-strip-container::after { bottom: 15px; }
-
-/* Track Item */
 .film-track {
     display: flex;
     width: max-content;
+    padding: 40px 0;
+    /* Lubang Klise Atas & Bawah */
+    background-image: 
+        radial-gradient(circle, #222 40%, transparent 42%), 
+        radial-gradient(circle, #222 40%, transparent 42%);
+    background-size: 40px 15px; /* Sesuaikan jarak lubang */
+    background-position: 0 10px, 0 calc(100% - 10px);
+    background-repeat: repeat-x;
+    
+    /* Animasi Jalan Terus Tanpa Henti */
+    animation: infiniteFilm 30s linear infinite;
 }
 
-/* Frame Project */
-.film-item { padding: 0 15px; }
+/* Biar berhenti pas dihover */
+.film-track:hover {
+    animation-play-state: paused;
+}
+
+.film-item {
+    padding: 0 20px;
+}
 
 .film-frame {
-    width: 450px; 
+    width: 450px;
     height: 280px;
     background: #111;
-    overflow: hidden;
-    border-radius: 4px;
-    filter: grayscale(100%) brightness(0.3) sepia(20%);
+    filter: grayscale(100%) brightness(0.3);
     transition: all 0.5s ease;
     border: 1px solid #333;
+    overflow: hidden;
 }
 
-/* Hover Effect */
-.film-frame:hover {
-    filter: grayscale(0%) brightness(1) sepia(0%);
-    transform: scale(1.05);
-    border-color: #9eff00;
-    box-shadow: 0 0 20px rgba(158, 255, 0, 0.4);
+.film-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
-/* Styling Dasar Input & Textarea */
+
+/* Hover: Warna Muncul & Zoom */
+.film-frame:hover {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.08);
+    border-color: #9eff00;
+    box-shadow: 0 0 30px rgba(158, 255, 0, 0.3);
+}
+
+/* KEYFRAMES SEAMLESS LOOP */
+@keyframes infiniteFilm {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* Geser tepat 50% karena kita punya 2 set gambar yang sama */
+        transform: translateX(-50%);
+    }
+}
+
+/* Support Scroll Manual (Trackpad/Shift+Scroll) */
+.film-slider-wrapper {
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.film-slider-wrapper::-webkit-scrollbar { display: none; }/* Styling Dasar Input & Textarea */
     .contact-form .form-control {
         background-color: rgba(255, 255, 255, 0.05) !important; /* Hitam transparan */
         border: 1px solid rgba(158, 255, 0, 0.2) !important; /* Border ijo tipis */
