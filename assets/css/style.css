@@ -323,94 +323,64 @@ h1, h2, h3, h4, h5, h6 {
     border-radius: 12px;
     font-size: 1.2rem;
 }
-/* Container Utama */
-film-strip-container {
+.film-strip-container {
     width: 100%;
-    padding: 40px 0;
+    padding: 50px 0;
     background: #050505;
-    position: relative;
     overflow-x: auto;
-    scroll-behavior: smooth;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    cursor: grab;
+    position: relative;
+    scroll-behavior: auto; /* Harus auto biar teleportasi JS instan */
+    -ms-overflow-style: none; scrollbar-width: none;
 }
 
-/* Sembunyiin scrollbar buat Chrome, Safari dan Opera */
-.film-strip-container::-webkit-scrollbar {
-    display: none;
-}
+.film-strip-container::-webkit-scrollbar { display: none; }
 
-/* Jalur Animasi */
+/* Lubang Film Strip (Perforation) */
+.film-strip-container::before, .film-strip-container::after {
+    content: ""; position: absolute; left: 0; width: 100%; height: 15px;
+    background-image: radial-gradient(circle, #222 40%, transparent 45%);
+    background-size: 30px 15px; z-index: 10;
+}
+.film-strip-container::before { top: 10px; }
+.film-strip-container::after { bottom: 10px; }
+
 .film-track {
     display: flex;
     width: max-content;
-    animation: filmScroll 40s linear infinite;
+    animation: filmAutoScroll 40s linear infinite;
 }
-/* Item Project */
-.film-item {
-    padding: 0 15px;
-}
+
+.film-item { padding: 0 15px; }
 
 .film-frame {
-    position: relative;
-    width: 400px; /* Ukuran frame film */
-    height: 250px;
-    background: #111;
-    overflow: hidden;
-    border-radius: 5px;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    /* Efek Gelap/Jadul di awal */
-    filter: grayscale(100%) brightness(0.4) sepia(20%);
-    border: 2px solid #222;
+    width: 450px; height: 280px;
+    overflow: hidden; border-radius: 4px;
+    filter: grayscale(100%) brightness(0.3) sepia(30%); /* Efek film jadul gelap */
+    transition: all 0.5s ease;
+    border: 2px solid #1a1a1a;
 }
 
-.film-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+.film-frame img { width: 100%; height: 100%; object-fit: cover; }
 
-/* Overlay Info Project */
-.film-overlay {
-    position: absolute;
-    bottom: -100%;
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    background: linear-gradient(transparent, rgba(0,0,0,0.9));
-    transition: 0.5s;
-    text-align: center;
-}
-
-.film-overlay h5 { color: #9eff00; font-weight: bold; margin: 0; }
-.film-overlay p { color: #fff; font-size: 0.8rem; margin: 5px 0 0; }
-
-/* HOVER EFFECT */
-.film-strip-container:hover .film-track {
-    animation-play-state: paused; /* Berhenti pas di-hover */
-}
+/* HOVER STATE */
+.film-strip-container:hover .film-track { animation-play-state: paused; }
 
 .film-frame:hover {
-    filter: grayscale(0%) brightness(1); /* Jadi berwarna & terang */
-    transform: scale(1.05); /* Nge-pop up dikit */
+    filter: grayscale(0%) brightness(1) sepia(0%); /* Warna asli & terang */
+    transform: scale(1.05); /* Zoom dikit */
     border-color: #9eff00;
-    box-shadow: 0 0 25px rgba(158, 255, 0, 0.3);
-    z-index: 10;
+    box-shadow: 0 0 20px rgba(158, 255, 0, 0.4);
 }
 
-.film-frame:hover .film-overlay {
-    bottom: 0; /* Info naik pas di-hover */
-}
-
-/* Animasi Jalan */
-@keyframes filmScroll {
+@keyframes filmAutoScroll {
     0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+    100% { transform: translateX(-33.33%); } /* Geser sepertiga bagian */
 }
 
-/* Responsive buat HP */
 @media (max-width: 768px) {
-    .film-frame { width: 280px; height: 180px; }
+    .film-frame { width: 300px; height: 190px; }
+    .film-track { animation-duration: 20s; } /* Lebih cepet dikit di HP */
 }
 /* Styling Dasar Input & Textarea */
     .contact-form .form-control {
