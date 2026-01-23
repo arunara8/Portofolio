@@ -469,7 +469,6 @@ footer i:hover {
 }
 /* Cari tag <i> di dalam About dan paksa jadi ijo */
 #about i, .fa-check, .fa-square-check {
-    color: #9eff00 !important;
     filter: drop-shadow(0 0 5px #9eff00);
 }
     @media (max-width: 991px) {
