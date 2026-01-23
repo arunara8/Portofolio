@@ -325,22 +325,30 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.2rem;
 }
 /* Container Utama */
-.film-strip-container {
+film-strip-container {
     width: 100%;
     padding: 40px 0;
     background: #050505;
     position: relative;
-    border-top: 5px dashed rgba(255,255,255,0.1); /* Efek garis film atas */
-    border-bottom: 5px dashed rgba(255,255,255,0.1); /* Efek garis film bawah */
+    /* Izinkan scroll tapi sembunyiin bar-nya */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Sembunyiin scrollbar buat Chrome, Safari dan Opera */
+.film-strip-container::-webkit-scrollbar {
+    display: none;
 }
 
 /* Jalur Animasi */
 .film-track {
     display: flex;
     width: max-content;
+    /* Animasi jalan otomatis */
     animation: filmScroll 40s linear infinite;
 }
-
 /* Item Project */
 .film-item {
     padding: 0 15px;
