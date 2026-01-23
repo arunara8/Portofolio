@@ -280,46 +280,17 @@ function changeLang(lang) {
     if(btnId) btnId.classList.toggle('active', lang === 'id');
     if(btnEn) btnEn.classList.toggle('active', lang === 'en');
 }
-const filmContainer = document.querySelector('.film-strip-container');
-let isHovered = false;
-let scrollSpeed = 1.5; // Sesuaikan kecepatan auto-scroll
+const track = document.querySelector('.film-track');
+const wrapper = document.querySelector('.film-slider-wrapper');
 
-function autoScroll() {
-    if (!isHovered) {
-        filmContainer.scrollLeft += scrollSpeed;
-        
-        // Logika Infinite Loop
-        const scrollLeft = filmContainer.scrollLeft;
-        const maxScroll = filmContainer.scrollWidth - filmContainer.clientWidth;
+// Jika user scroll manual pake trackpad/mouse horizontal
+wrapper.addEventListener('scroll', () => {
+    let scrollPos = wrapper.scrollLeft;
+    let halfWidth = track.scrollWidth / 2;
 
-        // Jika hampir menyentuh ujung kanan (Group 3)
-        if (scrollLeft >= maxScroll - 5) {
-            // Teleportasi ke area Group 2 (tengah) agar tetap bisa scroll kiri/kanan
-            filmContainer.scrollLeft = filmContainer.scrollWidth / 3;
-        }
+    if (scrollPos >= halfWidth) {
+        wrapper.scrollLeft = 1; // Balik ke awal tanpa patah
+    } else if (scrollPos <= 0) {
+        wrapper.scrollLeft = halfWidth - 1;
     }
-    requestAnimationFrame(autoScroll);
-}
-
-// Deteksi interaksi user
-filmContainer.addEventListener('mouseenter', () => isHovered = true);
-filmContainer.addEventListener('mouseleave', () => isHovered = false);
-
-// Biar swipe di HP juga tetap infinite
-filmContainer.addEventListener('scroll', () => {
-    const scrollLeft = filmContainer.scrollLeft;
-    const maxScroll = filmContainer.scrollWidth - filmContainer.clientWidth;
-
-    if (scrollLeft >= maxScroll - 2) {
-        filmContainer.scrollLeft = filmContainer.scrollWidth / 3;
-    } else if (scrollLeft <= 2) {
-        filmContainer.scrollLeft = filmContainer.scrollWidth / 3;
-    }
-});
-
-// Jalankan setelah semua gambar terload
-window.addEventListener('load', () => {
-    // Start di posisi 1/3 lebar agar user bisa scroll ke kiri langsung
-    filmContainer.scrollLeft = filmContainer.scrollWidth / 3;
-    autoScroll();
 });
