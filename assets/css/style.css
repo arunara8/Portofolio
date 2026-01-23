@@ -330,25 +330,17 @@ h1, h2, h3, h4, h5, h6 {
     padding: 40px 0;
     background: #050505;
     position: relative;
-    /* Izinkan scroll tapi sembunyiin bar-nya */
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
-    background-image: radial-gradient(circle, #222 40%, transparent 45%);
-    background-size: 30px 15px;
-    z-index: 5;
+    border-top: 5px dashed rgba(255,255,255,0.1); /* Efek garis film atas */
+    border-bottom: 5px dashed rgba(255,255,255,0.1); /* Efek garis film bawah */
 }
-.film-strip-container::-webkit-scrollbar {
-    display: none;
-}
+
 /* Jalur Animasi */
 .film-track {
     display: flex;
     width: max-content;
-    /* Animasi jalan otomatis */
     animation: filmScroll 40s linear infinite;
 }
+
 /* Item Project */
 .film-item {
     padding: 0 15px;
@@ -413,12 +405,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Responsive buat HP */
 @media (max-width: 768px) {
-    .film-track {
-        animation: none; /* Animasi mati di HP biar gak adu mekanik sama jempol */
-    }
-    .film-item {
-        padding: 0 10px;
-    }
+    .film-frame { width: 280px; height: 180px; }
 }
 /* Styling Dasar Input & Textarea */
     .contact-form .form-control {
