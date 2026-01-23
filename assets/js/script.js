@@ -280,3 +280,30 @@ function changeLang(lang) {
     if(btnId) btnId.classList.toggle('active', lang === 'id');
     if(btnEn) btnEn.classList.toggle('active', lang === 'en');
 }
+const filmContainer = document.querySelector('.film-strip-container');
+
+// 1. Scroll pake Mouse Wheel (Horizontal)
+filmContainer.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    filmContainer.scrollLeft += e.deltaY;
+});
+
+// 2. Logika Infinite Loop
+filmContainer.addEventListener('scroll', () => {
+    const scrollLeft = filmContainer.scrollLeft;
+    const maxScroll = filmContainer.scrollWidth - filmContainer.clientWidth;
+
+    // Kalau mau mentok kanan, lempar ke tengah
+    if (scrollLeft >= maxScroll - 5) {
+        filmContainer.scrollLeft = filmContainer.scrollWidth / 3;
+    } 
+    // Kalau mau mentok kiri, lempar ke tengah
+    else if (scrollLeft <= 5) {
+        filmContainer.scrollLeft = filmContainer.scrollWidth / 3;
+    }
+});
+
+// 3. Setup awal: taruh posisi scroll di tengah biar bisa ke kiri/kanan
+window.addEventListener('load', () => {
+    filmContainer.scrollLeft = filmContainer.scrollWidth / 3;
+});
