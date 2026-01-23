@@ -330,8 +330,11 @@ h1, h2, h3, h4, h5, h6 {
     padding: 40px 0;
     background: #050505;
     position: relative;
-    border-top: 5px dashed rgba(255,255,255,0.1); /* Efek garis film atas */
-    border-bottom: 5px dashed rgba(255,255,255,0.1); /* Efek garis film bawah */
+    /* Izinkan scroll tapi sembunyiin bar-nya */
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
 }
 .film-strip-container::before, 
 .film-strip-container::after {
@@ -345,7 +348,9 @@ h1, h2, h3, h4, h5, h6 {
     background-size: 40px 20px;
     z-index: 5;
 }
-
+.film-strip-container::-webkit-scrollbar {
+    display: none;
+}
 .film-strip-container::before { top: 5px; }
 .film-strip-container::after { bottom: 5px; }
 
@@ -353,9 +358,9 @@ h1, h2, h3, h4, h5, h6 {
 .film-track {
     display: flex;
     width: max-content;
+    /* Animasi jalan otomatis */
     animation: filmScroll 40s linear infinite;
 }
-
 /* Item Project */
 .film-item {
     padding: 0 15px;
@@ -420,7 +425,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Responsive buat HP */
 @media (max-width: 768px) {
-    .film-frame { width: 280px; height: 180px; }
+    .film-track {
+        animation: none; /* Animasi mati di HP biar gak adu mekanik sama jempol */
+    }
+    .film-item {
+        padding: 0 10px;
+    }
 }
 /* Styling Dasar Input & Textarea */
     .contact-form .form-control {
